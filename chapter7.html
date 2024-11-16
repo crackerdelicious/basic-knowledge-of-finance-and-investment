@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>บทที่ 7 การวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="13e0397c-16b3-80fe-b9b6-e502133390cf" class="page sans"><header><h1 class="page-title">บทที่ 7 การวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค</h1><p class="page-description"></p></header><div class="page-body"><p id="13e0397c-16b3-806f-9eb1-cae1ff86e4b8" class="">ตามที่ได้กล่าวในบทที่ 2 ว่า การวิเคราะห์หลักทรัพย์มี 2 แนวคิดหลัก คือ การวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยพื้นฐาน (fundamental analysis) และการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค (technical analysis) ทั้งนี้ เนื้อหาในสองบทที่ผ่านมา มุ่งเน้นในเรื่องการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยพื้นฐาน ได้แก่ การวิเคราะห์เศรษฐกิจ การวิเคราะห์อุตสาหกรรม (เนื้อหาในบทที่ 5) และการวิเคราะห์บริษัท (เนื้อหาในบทที่ 6) สำหรับเนื้อหาในบทนี้ เป็นอีกแนวคิดหนึ่งในการวิเคราะห์หลักทรัพย์ ได้แก่ การวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค รายละเอียดของเนื้อหาในบทนี้ ครอบคลุมถึง ความหมายและความสำคัญของการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค ลักษณะของข้อมูลที่นำมาวิเคราะห์ทางเทคนิค รูปแบบการเปลี่ยนแปลงของราคาหลักทรัพย์ และตัวอย่างการประยุกต์แนวรับและแนวต้านเพื่อการตัดสินใจลงทุน</p><h1 id="13e0397c-16b3-800c-9c30-c85ec3b467b1" class="block-color-blue">7.1 แนวคิดพื้นฐานของการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค</h1><p id="13e0397c-16b3-803a-9fea-f810ed69fb42" class="">การวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยพื้นฐาน และการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิคต่างเป็นการวิเคราะห์เพื่อเสาะหาหลักทรัพย์ที่มีราคาตลาดผิดไปจากราคาหรือมูลค่าที่ควรจะเป็น (mispriced securities) โดยคาดว่า หากหลักทรัพย์ที่มีราคาตลาดต่ำกว่าที่ควรจะเป็น ในที่สุดราคาจะปรับตัวสูงขึ้นหากหลักทรัพย์ที่มีราคาตลาดสูงกว่าที่ควรจะเป็น ในที่สุดราคาจะปรับตัวต่ำลง นั่นคือ ทั้งแนวคิดการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยพื้นฐาน และการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค ต่างก็อยู่บนความเชื่อที่ว่า ตลาดทุนหรือตลาดหลักทรัพย์ยังไม่มีประสิทธิภาพในเชิงข้อมูลข่าวสาร ดังนั้น ผู้ลงทุนที่ซื้อขายหลักทรัพย์โดยใช้แนวคิดของการวิเคราะห์หลักทรัพย์ดังกล่าว จึงสามารถทำผลตอบแทนส่วนที่เกินจากปกติได้ (มี abnormal return) จากการที่ราคาตลาดของหลักทรัพย์ผิดหรือแตกต่างไปจากราคาหรือมูลค่า ที่ควรจะเป็น</p><h2 id="13e0397c-16b3-8040-a4b4-c4ca48e9590f" class="block-color-blue">7.1.1 ความหมายและความสำคัญของการวิเคราะห์หลักทรัพย์ทางเทคนิค</h2><p id="13e0397c-16b3-80ae-accf-d7f2bc3bf41d" class="">การวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค (technical analysis) มีจุดมุ่งหมายเช่นเดียวกับการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยพื้นฐาน คือวิเคราะห์ข้อมูลที่เกี่ยวกับหลักทรัพย์ เพื่อตัดสินใจซื้อหรือขายหลักทรัพย์ หากแต่ข้อมูลที่ใช้และวิธีวิเคราะห์ข้อมูลเพื่อให้ได้มาซึ่งการตัดสินใจดังกล่าว มีแนวคิดรากฐาน ที่แตกต่างไปจากการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยพื้นฐาน โดยการวิเคราะห์ทางเทคนิคจะพิจารณาว่าในเมื่ออุปสงค์ (demand) และอุปทาน (supply) ในหลักทรัพย์เป็นตัวกำหนดราคาหลักทรัพย์ อีกทั้งการเปลี่ยนแปลงในอุปสงค์และอุปทานในหลักทรัพย์เป็นสาเหตุให้เกิดการเปลี่ยนแปลงในราคาหลักทรัพย์ ดังนั้น ตามแนวคิดการวิเคราะห์ทางเทคนิคจึงเชื่อว่า การวิเคราะห์และพยากรณ์ราคาหลักทรัพย์ ไม่จำเป็นต้องวิเคราะห์ปัจจัยต่างๆ ที่เป็นพื้นฐานกำหนดราคาหุ้น (เช่น เศรษฐกิจ อุตสาหกรรม บริษัท) แต่แนวคิดการวิเคราะห์ทางเทคนิคเชื่อว่า ควรมุ่งตรงไปที่การวิเคราะห์รูปแบบของราคาและปริมาณการซื้อขายโดยเชื่อว่าสามารถพยากรณ์ราคาหลักทรัพย์ได้จากรูปแบบราคาและปริมาณการซื้อขายในอดีต โดยอาศัยแผนภูมิราคาและเครื่องมือทางเทคนิคอื่นๆ รูปที่ 7-1 แสดงข้อสรุปของแนวคิดการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค</p><figure id="13e0397c-16b3-80b1-8e56-e3f54950a5a0" class="image"><a href="image%2089.png"><img style="width:707.984375px" src="image%2089.png"/></a></figure><p id="13e0397c-16b3-8024-b6f1-c7283a8a7174" class="">การวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค พัฒนาเกณฑ์การซื้อขายหลักทรัพย์ (trading rules) จากรูปแบบของราคาหลักทรัพย์ (price pattern) และปริมาณการซื้อขายหลักทรัพย์ โดยคาดการณ์การเปลี่ยนแปลงแนวโน้ม (trend) ของราคาหลักทรัพย์ กล่าวคือ</p><ul id="13e0397c-16b3-80e9-9f7d-ccd5200771c7" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">คาดว่าราคาหลักทรัพย์จะเปลี่ยนแปลงไปในทิศทางที่สูงขึ้น แนวคิดการวิเคราะห์ทางเทคนิคบ่งบอกว่าควรตัดสินใจซื้อหลักทรัพย์นั้น</mark></li></ul><ul id="13e0397c-16b3-80fd-9c84-e74b294b8463" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ถ้าคาดว่าราคาหลักทรัพย์จะเปลี่ยนแปลงไปในทิศทางที่ต่ำลง แนวคิดการวิเคราะห์ทางเทคนิคบ่งบอกว่าไม่ควรซื้อหลักทรัพย์นั้น ถ้าถือหลักทรัพย์นั้นอยู่ควรตัดสินใจขาย</mark></li></ul><ul id="13e0397c-16b3-80f4-ab78-ebfde8403471" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ถ้าคาดว่าราคาหลักทรัพย์จะไม่เปลี่ยนแปลง แนวคิดการวิเคราะห์ทางเทคนิคบ่งบอกว่า ควรรอสัญญาณการเปลี่ยนแปลงแนวโน้ม</mark></li></ul><p id="13e0397c-16b3-800e-91ad-c84ad1e326e0" class="">การวิเคราะห์ทางเทคนิคเป็นการวิเคราะห์หลักทรัพย์โดยใช้ข้อมูลการซื้อขายในอดีต เป็นตัวกำหนดมูลค่าหรือราคาในอนาคตของหลักทรัพย์ เพราะเชื่อในหลักการ “ประวัติศาสตร์ย่อมซ้ำรอยเดิม” กล่าวคือ ข้อมูลการซื้อขายหลักทรัพย์ ไม่ว่าจะอยู่ในช่วงตลาดขาขึ้นหรือขาลง จะบรรจุ “อารมณ์” ของตลาดหลักทรัพย์ อันเป็นผลทางจิตวิทยาของผู้มีส่วนร่วมในตลาดหลักทรัพย์ เช่น ความกล้าหรือความกลัวปะปนอยู่ และสะท้อนไปที่ราคาและปริมาณการซื้อขายหลักทรัพย์ เมื่อเกิดปรากฏการณ์ทำนองเดียวกันอีก แนวโน้มราคาและรูปแบบของราคา น่าจะปรากฏซ้ำคล้ายที่เคยเกิด ด้วยเหตุนี้ แนวคิดการวิเคราะห์ทางเทคนิคจึงเชื่อว่า รูปแบบของราคาและปริมาณการซื้อขายหลักทรัพย์ที่เกิดขึ้นในอดีต สามารถนำมาพยากรณ์ราคาหลักทรัพย์ได้หากตลาดหลักทรัพย์ยังมีปฏิกิริยาตอบสนองต่อเหตุการณ์ที่เกิดขึ้นในปัจจุบันหรืออนาคตไม่แตกต่างจากในอดีตที่ผ่านมา</p><h3 id="13e0397c-16b3-801b-a533-c198b8c5e079" class="block-color-blue">ข้อสมมติฐานในการวิเคราะห์หลักทรัพย์ทางเทคนิค</h3><ol type="1" id="13e0397c-16b3-80da-b757-d9bbc60f2564" class="numbered-list" start="1"><li>ราคาตลาดของหลักทรัพย์เป็นผลสะท้อนมาจากอุปสงค์ (demand) และอุปทาน (supply) ในหลักทรัพย์</li></ol><ol type="1" id="13e0397c-16b3-80d6-bb72-c3629f03b761" class="numbered-list" start="2"><li>มีปัจจัยต่างๆ มากมายที่เป็นตัวกำหนดอุปสงค์และอุปทานในหลักทรัพย์ ทั้งปัจจัยที่มีเหตุผล (เช่น ข้อมูลทางเศรษฐกิจ ผลการดำเนินงานของบริษัท) รวมทั้งปัจจัยที่ไม่มีเหตุผล (เช่น การตื่นกลัวโดยไม่มีสาเหตุ การเดา)</li></ol><ol type="1" id="13e0397c-16b3-800a-946d-d6cea67715e1" class="numbered-list" start="3"><li>ราคาของหลักทรัพย์จะเคลื่อนไหวในลักษณะเป็นแนวโน้ม และมีความต่อเนื่องจนกว่าจะมีสัญญาณแสดงลักษณะการเปลี่ยนแปลงแนวโน้มใหม่เกิดขึ้น</li></ol><ol type="1" id="13e0397c-16b3-8006-86ea-ee864233c5c4" class="numbered-list" start="4"><li>การเปลี่ยนแปลงในอุปสงค์และอุปทานในหลักทรัพย์ จะทำให้เกิดการเปลี่ยนแปลงในแนวโน้มอันนำไปสู่สัญญาณซื้อหรือสัญญาณขาย โดยรูปแบบของราคาหลักทรัพย์ที่เคยเกิดขึ้นในอดีต อาจเกิดซ้ำอีกได้</li></ol><h3 id="13e0397c-16b3-8008-8243-ca56efd7e23e" class="block-color-blue">ประโยชน์ของการวิเคราะห์ทางเทคนิค</h3><ol type="1" id="13e0397c-16b3-806d-84d9-e1b5ed0e5486" class="numbered-list" start="1"><li>มีความยืดหยุ่นในการใช้สูง ไม่จำกัดเฉพาะตลาดหุ้นเท่านั้น สามารถใช้ได้ทั้งตลาดเงินระหว่างประเทศ ตลาดอนุพันธ์ อัตราดอกเบี้ย ทองคำ ฯลฯ รวมทั้งยังสามารถปรับใช้ให้เหมาะสมกับระยะเวลาทั้งระยะสั้นและระยะยาวได้</li></ol><ol type="1" id="13e0397c-16b3-8086-b58b-ff1aeaa0b321" class="numbered-list" start="2"><li>การวิเคราะห์ทางเทคนิคนั้น จะมุ่งหาผลสุทธิของสาเหตุมากกว่าที่จะลงไปเจาะลึกถึงตัวสาเหตุเอง เมื่อเทียบกับการวิเคราะห์ปัจจัยพื้นฐานที่ต้องใช้ระยะเวลาค่อนข้างมากในการค้นหาสาเหตุเหล่านั้น ซึ่งอาจจะไม่ทันการในบางโอกาส</li></ol><ol type="1" id="13e0397c-16b3-804d-9ac6-d2432a24baf2" class="numbered-list" start="3"><li>การปรับตัวของราคาบางครั้ง เกิดขึ้นก่อนที่นักวิเคราะห์ปัจจัยพื้นฐานจะค้นพบสาเหตุที่แท้จริงซึ่งกว่าที่นักวิเคราะห์ปัจจัยพื้นฐานจะเข้าไปรับทราบถึงสาเหตุที่แท้จริง ราคาอาจจะถูกกระทบด้วยปัจจัยอื่นต่อเนื่องไปอีกแล้วได้ ดังนั้น ในบางครั้งการรอเพื่อทราบสาเหตุที่แท้จริง อาจจะทำให้เสียเปรียบ/เสียโอกาสในเชิงการแข่งขันกับผู้ลงทุนรายอื่น</li></ol><h3 id="13e0397c-16b3-800c-9ae9-ef07c6409972" class="block-color-blue">ข้อควรพิจารณาเกี่ยวกับการวิเคราะห์ทางเทคนิค</h3><ol type="1" id="13e0397c-16b3-8016-ad23-ec7be3833d4e" class="numbered-list" start="1"><li>การวิเคราะห์ทางเทคนิคแม้ว่าจะช่วยลดระยะเวลาของการวิเคราะห์ โดยพิจารณาที่ผลกระทบเลย แต่การวิเคราะห์อาจจะยังไม่มีความลึกเพียงพอ เพราะพิจารณาเน้นไปที่ผลกระทบทางจิตวิทยาของการซื้อขาย วิธีการที่เหมาะสม จึงควรอาศัยการวิเคราะห์ปัจจัยพื้นฐาน ซึ่งเน้นการวิเคราะห์สาเหตุเข้ามายืนยันด้วย การพิจารณาทั้งสาเหตุและผลกระทบจะทำให้การหาข้อสรุป เกี่ยวกับมูลค่าที่แท้จริงของหลักทรัพย์นั้นมีความมั่นใจมากขึ้น</li></ol><ol type="1" id="13e0397c-16b3-8005-8572-ff146a9cc7b3" class="numbered-list" start="2"><li>เครื่องมือการวิเคราะห์ทางเทคนิคบางอย่าง เช่น การวิเคราะห์แนวโน้ม ช่วยให้หาสัญญาณซื้อขายหลักทรัพย์ได้ แต่ต้องระวังว่าอาจไม่ได้ผลในกรณีที่หลักทรัพย์หรือตลาดมีการเคลื่อนไหวแบบไร้แนวโน้ม ดังนั้น แม้ว่าการวิเคราะห์ทางเทคนิคจะช่วยให้หาสัญญาณซื้อและสัญญาณขายได้ แต่การเข้าออกจากตลาดโดยอาศัยสัญญาณภายใต้การเคลื่อนไหวที่ไร้ทิศทางอาจไม่มีประโยชน์ในการทำกำไรและยังทำให้เสียค่าธรรมเนียมในการซื้อขายเพิ่มขึ้นด้วย</li></ol><ol type="1" id="13e0397c-16b3-80da-8eed-d36b07745d5e" class="numbered-list" start="3"><li>เครื่องมือในการวิเคราะห์ทางเทคนิคช่วยแนะนำว่าเมื่อใดควรซื้อหรือขาย หรือช่วงใดที่แนวโน้มมีการเปลี่ยนแปลง แต่ไม่ได้เป็นเครื่องมือที่จะยืนยันว่าสามารถซื้อที่ราคาต่ำสุด หรือ ขายได้ที่ราคาสูงสุด หรือ ทำกำไรได้สูงสุด เพราะข้อมูลที่ใช้ในการวิเคราะห์เป็นข้อมูลอดีตที่เกิดขึ้น ก่อนแล้ว และสัญญาณของการวิเคราะห์ทางเทคนิคไม่จำเป็นว่าจะต้องถูกเสมอไป ซึ่งเป็นไป ตามหลักการทางสถิติ</li></ol><h2 id="13e0397c-16b3-8078-9cb1-ed4dfba00c11" class="block-color-blue">7.1.2 ลักษณะของข้อมูลที่นำมาวิเคราะห์ทางเทคนิค</h2><p id="13e0397c-16b3-80e7-9ede-c7e0d131469b" class="">จากแนวคิดรากฐานของการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค ที่เชื่อว่าสามารถพยากรณ์ราคาหลักทรัพย์ได้ โดยอ้างอิงจากรูปแบบราคาและปริมาณการซื้อขายในอดีต โดยอาศัยแผนภูมิราคาและเครื่องมือทางเทคนิคอื่นๆ ดังนั้น ข้อมูลส่วนใหญ่ที่นำมาใช้ในการสร้างเครื่องมือวิเคราะห์ทางเทคนิค จึงได้แก่ (1) ราคาหลักทรัพย์ ณ เวลาต่างๆ และ (2) ปริมาณการซื้อขายหลักทรัพย์ (trading volume) ทั้งนี้ การวิเคราะห์หลักทรัพย์ทางเทคนิคสามารถใช้ได้กับหลักทรัพย์ทุกประเภท แต่ในที่นี้จะยกตัวอย่างการประยุกต์ใช้กับหุ้นเป็นหลัก</p><h3 id="13e0397c-16b3-8031-8e98-cf76fd8fda78" class="block-color-blue">ราคา (price)</h3><p id="13e0397c-16b3-804d-a671-d3552a06a0ca" class="">ข้อมูลราคาหุ้นที่ผู้ลงทุนได้รับในแต่ละช่วงเวลา ได้แก่ ราคาเปิด ราคาสูงสุด ราคาต่ำสุด ราคาปิด ราคาเฉลี่ย ราคาเสนอซื้อ ราคาเสนอขาย อย่างไรก็ตาม เนื่องจากข้อมูลราคาหุ้น เป็นข้อมูลที่มีมิติด้านเวลาผนวกมาด้วย เช่น “ราคาหุ้นวันนี้” “ราคาหุ้นใน 1 ปีที่ผ่านมา” และอื่นๆ ในที่นี้จะใช้กรณีตัวอย่าง เป็น “ราคาหุ้นในช่วง 1 วันทำการที่ผ่านมา” (ซึ่งผู้อ่านสามารถประยุกต์ความหมายของราคา ตามมิติของ เวลาช่วงอื่นๆ ได้)</p><ul id="13e0397c-16b3-807e-97bf-ddd50726350b" class="block-color-blue bulleted-list"><li style="list-style-type:disc">ราคาเปิด (opening price หรือ open) <mark class="highlight-default">ราคาเปิดของหุ้นแต่ละบริษัทในแต่ละวัน เป็นราคาที่มีการตกลงซื้อขายหุ้นบริษัทนั้น เป็นครั้งแรกตอนเปิดตลาดสำหรับวันนั้น</mark></li></ul><ul id="13e0397c-16b3-8018-a7cc-e6e2c8f87b5c" class="block-color-blue bulleted-list"><li style="list-style-type:disc">ราคาสูงสุด (highest price หรือ high) <mark class="highlight-default">ราคาสูงสุดของหุ้นแต่ละบริษัทในแต่ละวัน เป็นราคาซื้อขายหุ้นบริษัทนั้น ที่มีระดับสูงสุดในระหว่างวันนั้น</mark></li></ul><ul id="13e0397c-16b3-80ff-a5b9-d36bc573cf6b" class="block-color-blue bulleted-list"><li style="list-style-type:disc">ราคาต่ำสุด (lowest price หรือ low) <mark class="highlight-default">ราคาต่ำสุดของหุ้นแต่ละบริษัทในแต่ละวัน เป็นราคาซื้อขายหุ้นบริษัทนั้น ที่มีระดับต่ำสุดในระหว่างวันนั้น</mark></li></ul><ul id="13e0397c-16b3-8028-99ce-d02808c595c8" class="block-color-blue bulleted-list"><li style="list-style-type:disc">ราคาปิด (closing price หรือ close) <mark class="highlight-default">ราคาปิดของหุ้นแต่ละบริษัทในแต่ละวัน เป็นราคาที่มี การตกลงซื้อขายหุ้นบริษัทนั้น เป็นครั้งสุดท้ายก่อนปิดตลาดสำหรับวันนั้น</mark></li></ul><ul id="13e0397c-16b3-80fc-ae8e-eb3ff554ebf2" class="block-color-blue bulleted-list"><li style="list-style-type:disc">ราคาเฉลี่ย (average price) <mark class="highlight-default">การซื้อขายหุ้นของแต่ละบริษัทในแต่ละวัน ย่อมเกิดขึ้นหลายครั้ง ณ ราคา และปริมาณหุ้นที่อาจหลากหลาย เมื่อนำราคาซื้อขายเหล่านั้นมาหาค่าเฉลี่ยตามปริมาณการซื้อขาย ได้ผลลัพธ์เป็นราคาเฉลี่ยของหุ้นบริษัทนั้นในวันนั้น</mark></li></ul><ul id="13e0397c-16b3-805b-a399-c81aaa519562" class="block-color-blue bulleted-list"><li style="list-style-type:disc">ราคาเสนอซื้อ (bid price) <mark class="highlight-default">เป็นราคาที่เสนอโดยผู้ที่ตั้งใจจะซื้อหุ้น (นั่นคือ เขาปรารถนาจะจ่ายค่าหุ้นในระดับราคานั้น)</mark></li></ul><ul id="13e0397c-16b3-80ee-9818-e697556443cf" class="block-color-blue bulleted-list"><li style="list-style-type:disc">ราคาเสนอขาย (offer price) <mark class="highlight-default">เป็นราคาที่เสนอโดยผู้ที่ตั้งใจจะขายหุ้น (นั่นคือ เขาปรารถนาจะรับค่าหุ้นในระดับราคานั้น)</mark></li></ul><ul id="13e0397c-16b3-804f-b558-dcf946ee8894" class="block-color-blue bulleted-list"><li style="list-style-type:disc">ช่วงห่างราคาเสนอซื้อเสนอขาย (bid-ask spread) <mark class="highlight-default">เป็นค่าความต่างระหว่างราคาเสนอขาย (offer price) กับราคาเสนอซื้อ (bid price) พึงสังเกตว่า ณ เวลาใดเวลาหนึ่ง ราคาเสนอขายหุ้นหนึ่ง จะมีระดับสูงกว่าราคาเสนอซื้อหุ้นนั้นเสมอ</mark></li></ul><ul id="13e0397c-16b3-804f-bc39-e2b2d5aa2c1c" class="block-color-blue bulleted-list"><li style="list-style-type:disc">ปริมาณการซื้อขาย (trading volume หรือ volume) <mark class="highlight-default">ปริมาณการซื้อขายหุ้นของแต่ละบริษัท ในแต่ละวัน เป็นจำนวนหุ้นบริษัทนั้นที่มีการซื้อขายรวมในวันนั้น ทั้งนี้ หากเป็นข้อมูลปริมาณการซื้อขายทั้งตลาดในแต่ละวัน จะหมายถึงจำนวนหุ้นทุกบริษัท ที่มีการซื้อขายรวมทั้งสิ้น ในตลาดหลักทรัพย์ในวันนั้น ทั้งนี้ ในแผนภูมิราคาหุ้น มักแสดงปริมาณการซื้อขายหุ้นไว้ที่ด้านล่างของแผนภูมิราคาหุ้น</mark></li></ul><p id="13e0397c-16b3-80a9-b1d0-cf3c3f4d61f8" class="">ตามแนวคิดการวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิค ได้ให้ความสำคัญต่อความสัมพันธ์ระหว่างการเปลี่ยนแปลงของราคาหุ้นหรือดัชนีราคาหุ้น กับปริมาณการซื้อขายหุ้น กล่าวคือ ในขณะที่ราคาหุ้นกำลังมีแนวโน้มในทิศทางใดทิศทางหนึ่ง เช่น มีแนวโน้มสูงขึ้น หากปริมาณการซื้อขายหุ้นก็มากขึ้นด้วย แนวคิดทางเทคนิคเชื่อว่า ราคาหุ้นจะยังคงมีแนวโน้มสูงขึ้นอีกต่อไป แต่ถ้าในขณะที่ราคาหุ้นกำลังมีแนวโน้มสูงขึ้น หากปริมาณการซื้อขายหุ้นลดน้อยลง แนวคิดทางเทคนิคเชื่อว่า เกิดการไม่สอดคล้อง (bearish divergence) นั่นคือ การบ่งบอกถึงการสิ้นสุดแนวโน้มการสูงขึ้นของราคาหุ้น</p><p id="13e0397c-16b3-808a-ba11-f0f4f6b40552" class="">ในทำนองเดียวกัน ในขณะที่ราคาหุ้นกำลังมีแนวโน้มลดลง หากปริมาณการซื้อขายหุ้นมากขึ้นแนวคิดทางเทคนิคเชื่อว่า เป็นการยืนยันว่าราคาหุ้นจะยังคงมีแนวโน้มลดลงอีกต่อไป แต่ถ้าในขณะที่ราคาหุ้นกำลังมีแนวโน้มลดลง หากปริมาณการซื้อขายหุ้นลดน้อยลง แนวคิดทางเทคนิคเชื่อว่า เกิดการไม่สอดคล้อง (bullish divergence) นั่นคือ การบ่งบอกถึงการสิ้นสุดแนวโน้มการลดลงของราคาหุ้น</p><p id="13e0397c-16b3-80a1-a224-c6e656d94710" class="">รูปที่ 7-2 เป็นแผนผังแสดงความสัมพันธ์ระหว่างแนวโน้มราคาหุ้นกับปริมาณการซื้อขายหุ้น ตามที่กล่าวข้างต้น</p><figure id="13e0397c-16b3-80de-88dc-d64a8180847b" class="image"><a href="image%2090.png"><img style="width:707.96875px" src="image%2090.png"/></a></figure><h3 id="13e0397c-16b3-807a-8edf-cfa34466c556" class="block-color-blue">แผนภูมิราคาหลักทรัพย์</h3><p id="13e0397c-16b3-80bb-9247-c7dc2da4be23" class="">ดังที่กล่าวข้างต้นว่า การวิเคราะห์หลักทรัพย์โดยใช้ปัจจัยทางเทคนิคจะอยู่บนความเชื่อที่ว่า สามารถวิเคราะห์และพยากรณ์ราคาหลักทรัพย์ เพื่อหาสัญญาณซื้อหรือสัญญาณขายจากรูปแบบราคาและปริมาณการซื้อขายในอดีต โดยนักวิเคราะห์ทางเทคนิคจะวิเคราะห์จากแผนภูมิราคาและเครื่องมือทางเทคนิคอื่นๆ ทั้งนี้ รูปแบบกราฟหรือแผนภูมิที่นิยมใช้ในการวิเคราะห์ทางเทคนิค ได้แก่ แผนภูมิแบบเส้น (line chart) แผนภูมิแท่ง (bar chart) และแผนภูมิแท่งเทียน (candlestick chart)</p><ul id="13e0397c-16b3-80e0-a0a3-d85aa6d26309" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>แผนภูมิแบบเส้น (line chart)</strong></em><p id="13e0397c-16b3-80e7-83b5-c8162fa836e4" class=""><mark class="highlight-default">แผนภูมิแบบเส้น เป็นกราฟที่แสดงแกนตั้งเป็นราคาหุ้น ส่วนแกนนอนเป็นงวดเวลา โดยแผนภูมิ แบบเส้นแสดงราคาหุ้นด้วยราคาปิดของหุ้นนั้นๆ ส่วนงวดเวลา อาจแสดงเป็น ปี หรือเดือน หรือสัปดาห์ หรือวัน หรือชั่วโมง หรือนาที หรืออื่นๆ เมื่อพล็อตราคาปิดแล้ว จึงลากเป็นเส้นต่อเนื่องกัน ดังแสดงใน รูปที่ 7-3 ทั้งนี้ แผนภูมิแบบเส้นแสดงเฉพาะราคาปิดเพียงชนิดเดียว (มิได้แสดงราคาเปิด ราคาสูงสุด และ ราคาต่ำสุด) ทำให้สามารถทำความเข้าใจแผนภูมิได้ไม่ยากนัก อย่างไรก็ตาม การที่แผนภูมิแบบเส้น แสดงเฉพาะราคาปิดตามงวดเวลา โดยมิได้แสดงราคาเปิด ราคาสูงสุด และราคาต่ำสุด จึงทำให้นักวิเคราะห์ ส่วนใหญ่ ไม่นิยมนำแผนภูมิแบบเส้นมาใช้ในการวิเคราะห์หาแนวโน้มราคา</mark></p><figure id="13e0397c-16b3-809e-a59e-d037fc02b4ca" class="image"><a href="image%2091.png"><img style="width:707.984375px" src="image%2091.png"/></a></figure></li></ul><ul id="13e0397c-16b3-80ce-b021-d7ff1de5b45a" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>แผนภูมิแท่ง (bar chart)</strong></em><p id="13e0397c-16b3-8094-97f5-fcc6c250667c" class=""><mark class="highlight-default">แผนภูมิแท่ง เป็นกราฟที่แสดงแกนตั้งเป็นราคาหุ้น ส่วนแกนนอนเป็นงวดเวลา เช่น ปี หรือเดือน หรือสัปดาห์ หรือวัน หรือชั่วโมง หรือนาที เป็นต้น ราคาหุ้นที่แสดงมีลักษณะเป็นแท่งตั้งตรงในแนวดิ่ง ในแต่ละแท่งของแผนภูมิชนิดนี้ แสดงระดับราคาเปิด (open) ราคาสูงสุด (high) ราคาต่ำสุด (low) และ ราคาปิด (close) ของงวดเวลานั้นๆ โดยปลายบนสุดของแท่ง แสดงราคาสูงสุด (high) ของงวดเวลานั้น ปลายล่างสุดของแท่งแสดงราคาต่ำสุด (low) ของงวดเวลานั้น ขีดในแนวนอนสั้นๆ ด้านซ้ายของแท่งแสดงราคาเปิด (open) และขีดในแนวนอนสั้นๆ ด้านขวาของแท่งแสดงราคาปิด (close) ดังแสดงในรูปที่ 7-4 ส่วนรูปที่ 7-5 เป็นภาพจำลองแผนภูมิแบบแท่งที่พล็อตต่อเนื่องในช่วงเวลาหนึ่ง โดยในกรณีที่แสดงแผนภูมิเป็นภาพสีนั้น ช่วงที่ราคาหุ้นสูงขึ้นเมื่อเทียบกับวันก่อนหน้า มักแสดงด้วยแท่งสีดำหรือเขียวหรือน้ำเงิน ช่วงที่ราคาหุ้นต่ำลงเมื่อเทียบกับวันก่อนหน้า มักแสดงด้วยแท่งสีแดง</mark></p><figure id="13e0397c-16b3-80b9-967d-d1e9e0016d35" class="image"><a href="image%2092.png"><img style="width:679.96875px" src="image%2092.png"/></a></figure><figure id="13e0397c-16b3-8044-8432-d8665365e544" class="image"><a href="image%2093.png"><img style="width:679.96875px" src="image%2093.png"/></a></figure></li></ul><ul id="13e0397c-16b3-804c-b7ce-d154857a9d57" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>รูปแบบของแท่ง (bar patterns)</strong></em><p id="13e0397c-16b3-8015-9a23-f78e00af2ffc" class=""><mark class="highlight-default">แม้ว่าการวิเคราะห์ราคาจากแผนภูมิแท่ง จะต้องพิจารณาจากแผนภูมิราคาที่พล็อตต่อเนื่องในช่วงเวลาหนึ่ง อย่างไรก็ตาม รูปแบบของแท่งแต่ละแท่ง ได้แก่ ความยาวของแท่งและที่ตั้งของราคาเปิดราคาปิด (โดยเฉพาะอย่างยิ่ง-ราคาปิด) มีส่วนช่วยในการคาดการณ์ราคาหุ้นอยู่บ้าง ตัวอย่างเช่น หากหุ้นมีราคาปิดสูงกว่าราคาเปิด และค่อนไปทางราคาสูงสุด มักคาดกันว่า ราคาหุ้นจะสูงขึ้น แต่หากหุ้นมีราคาปิดต่ำกว่าราคาเปิด และค่อนไปทางราคาต่ำสุด มักคาดกันว่า ราคาหุ้นจะต่ำลง อย่างไรก็ตาม อาจมีสาเหตุอื่นๆ เข้ามาเกี่ยวข้อง ทำให้ราคาหุ้นมิได้เป็นไปตามที่ตั้งของราคาปิดตามที่กล่าวได้</mark></p><p id="13e0397c-16b3-805e-8fff-d2d9ed49822a" class=""><mark class="highlight-default">ในส่วนของความยาวของแท่งราคา ซึ่งบอกระยะห่าง (range) ระหว่างราคาสูงสุดและราคาต่ำสุดของหุ้นนั้น ในช่วงเวลานั้น การที่แท่งราคามีความยาวมากหรือราคาสูงสุดอยู่ห่างจากราคาต่ำสุดอยู่มากมักจะตีความว่าเป็นปัจจัยที่เพิ่มความผันผวน (volatility) ให้กับราคาหุ้นนั้น ในทางตรงกันข้าม การที่แท่งราคาค่อนข้างสั้น หรือราคาสูงสุดใกล้เคียงกับราคาต่ำสุด บ่งถึงการเคลื่อนไหวของราคาเพียงเล็กน้อยราคามีความผันผวนต่ำ</mark></p><p id="13e0397c-16b3-802a-a74d-de4bfc0de903" class=""><mark class="highlight-default">อนึ่ง เนื่องจากในแต่ละแท่งของแผนภูมิชนิดนี้ แสดงราคาเปิด ราคาสูงสุด ราคาต่ำสุด และราคาปิด ของงวดเวลานั้นๆ จึงมีการเรียกชื่อแผนภูมิแท่งว่า &#x27;OHLC Bar Chart&#x27; ซึ่งเป็นคำย่อมาจาก “Open, High, Low, Close Bar Chart&quot;</mark></p></li></ul><ul id="13e0397c-16b3-800d-b108-d6da01bc9c85" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>แผนภูมิแท่งเทียน (candlestick chart)</strong></em><p id="13e0397c-16b3-809e-9058-f1f06762366f" class=""><mark class="highlight-default">แผนภูมิแท่งเทียน เป็นกราฟที่แสดงแกนตั้งเป็นราคาหุ้น ส่วนแกนนอนเป็นงวดเวลา (เช่น ปี หรือ เดือน หรือสัปดาห์ หรือวัน หรือชั่วโมง หรือนาที เป็นต้น) กราฟแท่งเทียนเป็นกราฟที่ผู้ลงทุนญี่ปุ่นใช้ในการ วิเคราะห์หุ้น หรือตลาดซื้อขายล่วงหน้า โดยกราฟแท่งเทียนเป็นกราฟที่ต้องอาศัยข้อมูลราคาเปิด ราคาสูงสุด ราคาต่ำสุด และราคาปิด โดยจะลากเส้นเชื่อมระหว่างราคาเปิดกับราคาปิดเข้าด้วยกัน ทำให้เป็นเส้นตั้งที่มี ความหนาของเส้นเหมือนกับแท่งเทียนจริง</mark></p><p id="13e0397c-16b3-8016-8d68-d630b11c25c2" class=""><mark class="highlight-default">ทั้งนี้ กราฟแท่งเทียนประกอบด้วย ลำตัว (body) ซึ่งเป็นช่วงระหว่างราคาเปิดกับราคาปิด โดย กราฟแท่งเทียนที่มีลำตัวสีขาว (white candlestick) จะมีราคาเปิดต่ำกว่าราคาปิด ซึ่งจะเกิดขึ้นในภาวะตลาด อยู่ในช่วงขาขึ้น ในขณะที่กราฟแท่งเทียนที่มีลำตัวสีดำ (back candlestick) จะมีราคาเปิดสูงกว่าราคาปิด ส่วนใหญ่จะเป็นช่วงที่ภาวะตลาดอยู่ในช่วงขาลง แรงขายมากกว่าแรงซื้อจนทำให้ราคามาปิดต่ำกว่าราคาเปิด</mark></p><figure id="13e0397c-16b3-8092-ba38-edf01da1d073" class="image"><a href="image%2094.png"><img style="width:679.96875px" src="image%2094.png"/></a></figure></li></ul><h2 id="13e0397c-16b3-80cf-abee-cf68690752e3" class="block-color-blue">7.1.3 รูปแบบการเปลี่ยนแปลงของราคาหลักทรัพย์ ทฤษฎีดาว (Dow theory)</h2><p id="13e0397c-16b3-80b0-8169-c150cec382e2" class="">การทำความเข้าใจรูปแบบการเปลี่ยนแปลงของราคาหลักทรัพย์ ตามแนวคิดการวิเคราะห์ทางเทคนิคควรเริ่มจากการทำความเข้าใจใน “ทฤษฎีดาว (Dow theory)” ซึ่งเสนอวิธีการวิเคราะห์และตีความการเคลื่อนไหวของตลาดหุ้นมาตั้งแต่คริสต์ศตวรรษที่ 19 ทฤษฎีนี้ได้รับการขนานนามตาม Charles Dow (ค.ศ. 1851-1902) ผู้ร่วมก่อตั้งบริษัทดาวโจนส์ (Dow Jones Company) และเป็นบรรณาธิการคนหนึ่งของหนังสือพิมพ์วอลล์สตรีทเจอร์นัล (The Wall Street Journal) ภายหลังจากที่เขาถึงแก่กรรม ได้มีการรวบรวมแนวคิดจากข้อเขียนต่างๆ ในบทบรรณาธิการของเขา แล้วเรียกแนวคิดเหล่านั้นว่า Dow theory</p><p id="13e0397c-16b3-80b9-87e5-ce73e1f32c2b" class="">ตาม Dow theory ได้เปรียบเทียบการเคลื่อนไหวของราคาหุ้นกับกระแสน้ำขึ้นน้ำลง (tide) คลื่น (waves) และฟองคลื่น (ripples) ในทะเล กล่าวคือ หากต้องการดูว่ากระแสน้ำทะเลกำลังขึ้นหรือลง สามารถดูได้จากพฤติกรรมของคลื่น หากคลื่นลูกต่อมา มาแตะหาดทรายร่นสูงกว่าคลื่นลูกแรก แสดงว่าน้ำทะเล ขณะนั้นกำลังขึ้น แต่หากคลื่นลูกต่อมาถอยต่ำกว่าคลื่นลูกแรกแสดงว่าน้ำทะเลกำลังลง โดยมิต้องพิจารณาฟองคลื่นเล็กๆ ในลูกคลื่นนั้น</p><p id="13e0397c-16b3-800d-91da-f4b55d1dcbdf" class="">กระแสน้ำ (tide) ดังกล่าว เปรียบเสมือนแนวโน้มใหญ่ (primary trend) ของราคาหุ้น ส่วนคลื่น (wave) เปรียบเสมือนแนวโน้มรอง (secondary trend or intermediate trend) ซึ่งหากในช่วงแนวโน้มใหญ่ อยู่ในช่วงขาขึ้น จุดสูงสุดของแนวโน้มรองในแต่ละช่วงเวลาจะสูงขึ้นเรื่อยๆ แต่หากในช่วงแนวโน้มใหญ่อยู่ในช่วงขาลง จุดสูงสุดของแนวโน้มรองในแต่ละช่วงเวลาจะต่ำลงเรื่อยๆ โดยมิต้องพิจารณาการเปลี่ยนแปลง ราคาหุ้นวันต่อวัน</p><ul id="13e0397c-16b3-8032-ba73-f172e6e7400f" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>แนวคิดหลัก 6 ประการ ของ Dow theory</strong></em><ol type="1" id="13e0397c-16b3-80e3-a1d8-e4650ee3eba0" class="block-color-default_background numbered-list" start="1"><li><mark class="highlight-default">ราคาที่เกิดขึ้น/ตกลงซื้อขายกันนั้นได้สะท้อนปัจจัยทุกสิ่งไว้แล้ว</mark></li></ol><ol type="1" id="13e0397c-16b3-8039-88dd-c2ea8015f0da" class="block-color-default_background numbered-list" start="2"><li><mark class="highlight-default">ตลาดแบ่งออกเป็น 3 แนวโน้ม</mark><ul id="13e0397c-16b3-8050-b81e-dc421edd1c8b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">แนวโน้มใหญ่ (primary trend) มีลักษณะเป็นแนวโน้มในระยะยาวของราคาหุ้นอาจใช้เวลาเป็นปี หรือหลายปี</mark></li></ul><ul id="13e0397c-16b3-80b2-b24c-e4d76aa94632" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">แนวโน้มรอง (secondary trend or intermediate trend) เป็นแนวโน้มของราคาหุ้น ในช่วง เวลารายเดือน</mark></li></ul><ul id="13e0397c-16b3-8004-af9a-e03642ef4cf7" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">แนวโน้มย่อย (minor trend) การเคลื่อนไหวรายวัน (daily fluctuation) ถึงรายสัปดาห์</mark></li></ul></li></ol><figure id="13e0397c-16b3-80f1-8957-d5d099a5f88d" class="image"><a href="image%2095.png"><img style="width:679.96875px" src="image%2095.png"/></a></figure><p id="13e0397c-16b3-80b1-9ecf-da62a874fb72" class="block-color-default"><mark class="highlight-default">จากรูปที่ 7-7 จะเห็นได้ว่า แนวโน้มรองเป็นองค์ประกอบที่ก่อสร้างทิศทางของแนวโน้มใหญ่ โดยหากระดับราคาหุ้นในแนวโน้มรองครั้งต่อมาสูงกว่าครั้งก่อน หรือหากเป็นการปรับตัวลดลงยังคงอยู่เหนือระดับที่ลดลงก่อนหน้า (higher top &amp; higher bottom) แสดงว่าแนวโน้มใหญ่ของหุ้นในระยะยาวยังคงดี (ขึ้น) อยู่ (primary up - trend หรือ bull market) แต่ในทางกลับกัน หากแนวโน้มรองในช่วงเวลาต่อมาต่ำกว่าแนวโน้มรองก่อนหน้า ทั้งในแง่จุดสูงสุดและจุดต่ำสุด (lower top &amp; lower bottom) แสดงว่าแนวโน้มใหญ่ของหุ้นมีแนวโน้มการปรับตัวลดลง (primary down-trend หรือ bear market) กล่าวโดยย่อ คือ แนวโน้มย่อยแม้จะไม่มีส่วนในการบอกทิศทางของแนวโน้มใหญ่โดยตรง แต่ถือเป็นองค์ประกอบที่เป็นตัวก่อร่างสร้างแนวโน้มรอง ซึ่งแนวโน้มรองเป็นองค์ประกอบที่ก่อร่างสร้างแนวโน้มใหญ่ต่อไปตามลำดับ</mark></p><ol type="1" id="13e0397c-16b3-80a1-9d95-c53763002f81" class="numbered-list" start="3"><li><mark class="highlight-default">แนวโน้มใหญ่มี 3 ระยะ (พิจารณาจากพฤติกรรมการลงทุน)</mark><ul id="13e0397c-16b3-805e-9f72-e7e85f63cc86" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ระยะแรก/ระยะสะสมหุ้น (accumulation phase) ซึ่งโดยธรรมชาติแล้วมักจะเป็นผู้ลงทุนที่ใช้ปัจจัยพื้นฐานเป็นหลักเข้าลงทุน</mark></li></ul><ul id="13e0397c-16b3-802b-b1a2-daad55b481d3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ระยะที่สอง (trend-followers phase) เป็นช่วงตลาดเผยให้เห็นถึงแนวโน้มที่ชัดเจนเกิดขึ้นแล้ว ระยะนี้ผู้ลงทุนที่ใช้ในการวิเคราะห์ทางเทคนิคเป็นหลักจะเข้าลงทุนตามมา เนื่องจากส่วนใหญ่ของนักเทคนิคจะเป็นการลงทุนตามแนวโน้มเป็นหลัก</mark></li></ul><ul id="13e0397c-16b3-8035-9fa2-efa8b7909484" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ระยะที่สาม/ระยะสุดท้ายของแนวโน้มใหญ่ (distribution phase) เป็นระยะที่มีการจำหน่าย จ่ายแจก/ระบายหุ้น/ขายหุ้นออกไป</mark></li></ul></li></ol><ol type="1" id="13e0397c-16b3-80ee-8b25-e799e91ee3e1" class="numbered-list" start="4"><li><mark class="highlight-default">การเคลื่อนไหวของดัชนีราคาแต่ละกลุ่มอุตสาหกรรมจะต้องมีทิศทางการเคลื่อนไหวในทางเดียวกันจึงเป็นการยืนยันแนวโน้มที่เกิดขึ้น กรณีพบว่ามีการเคลื่อนไหวที่ไม่สอดคล้องกัน เช่น ดัชนีราคาหุ้นกลุ่มขนส่งมีแนวโน้มขึ้น แต่ดัชนีราคาหุ้นกลุ่มธนาคารพาณิชย์กลับมีแนวโน้มลง ตามทฤษฎีดาวจะถือว่าลักษณะความไม่สอดคล้องกันนี้เกิดจากการที่ตลาดยังมีแนวโน้มที่ไม่แน่นอน ดังนั้นผู้ลงทุนจึงควรมีการติดตามดูแนวโน้มการเคลื่อนไหวของราคาหุ้น และดัชนีราคาหุ้นต่อไป</mark></li></ol><ol type="1" id="13e0397c-16b3-8089-97d5-fff12c496cf4" class="numbered-list" start="5"><li><mark class="highlight-default">ปริมาณการซื้อขายหลักทรัพย์ต้องมีการยืนยันแนวโน้ม กล่าวคือ ทั้งราคาและปริมาณการซื้อขายมีการปรับตัวไปในทิศทางเดียวกันเพื่อเป็นการยืนยันแนวโน้ม ดังนั้น หากภาวะของตลาดมีแนวโน้มใหญ่ ในทิศทางขึ้นปริมาณการซื้อขายหุ้นควรจะเพิ่มขึ้นด้วย และในช่วงที่แนวโน้มใหญ่ยังเป็นขาขึ้น หากเกิด การพักฐาน/ปรับตัวลงมายังแนวรับและพบว่าปริมาณการซื้อขายลดลงด้วย จะแสดงถึงการเคลื่อนไหว ปรับตัวดังกล่าวเป็นเพียงการปรับตัวช่วงสั้นเท่านั้น เป็นต้น</mark></li></ol><ol type="1" id="13e0397c-16b3-8087-b96f-e5b26eccc6a6" class="numbered-list" start="6"><li><mark class="highlight-default">ราคาจะเคลื่อนที่ตามแนวโน้มเดิมต่อไปจนกว่าจะมีสัญญาณที่แสดงการเปลี่ยนแปลงแนวโน้มเกิดขึ้นให้ปรากฏ เช่น ในกรณีแนวโน้มขึ้นจะมีลักษณะ Higher top &amp; Higher bottom ต่อเนื่องไป จนเมื่อใดหากพบว่าเกิดลักษณะ Lower top &amp; Lower bottom ปรากฏ จึงจะแสดงว่าแนวโน้มขึ้นก่อนหน้าที่เคยดำเนินอยู่นั้น เกิดการเปลี่ยนกลับเป็นแนวโน้มลงรอบใหม่ และจะเคลื่อนที่ในแนวโน้มลงต่อไปจนกว่าจะเกิดสัญญาณเปลี่ยนกลับเป็นแนวโน้มขึ้นรอบใหม่เกิดขึ้นอีกครั้ง เป็นต้น</mark></li></ol></li></ul><ul id="13e0397c-16b3-80ad-87ea-d21cc1946efd" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>จุดอ่อนของทฤษฎีดาว</strong></em><p id="13e0397c-16b3-8084-b609-db2a6beaf9b5" class=""><mark class="highlight-default">เนื่องจากทฤษฎีดาวมักจะเน้น/ให้ความสำคัญของแนวโน้มใหญ่ ดังนั้น โดยธรรมชาติเมื่อมีการเปลี่ยนแนวโน้ม เช่น จากแนวโน้มใหญ่ขาขึ้นก่อนหน้า เปลี่ยนเป็นแนวโน้มใหญ่ขาลงรอบใหม่ มักจะพบระยะทางจากจุดสูงสุดของแนวโน้มขึ้นก่อนหน้ากับจุดที่แสดงสัญญาณเปลี่ยนเป็นแนวโน้มใหญ่ขาลงซึ่งควรเป็นจุดที่ตัดสินใจขาย มักจะมีช่วงห่าง/ระยะทางที่อาจจะมาก จึงอาจทำให้เสียโอกาสไปบ้าง อย่างไรก็ตาม ยังสามารถนำองค์ความรู้เกี่ยวกับเครื่องชี้ (indicators) เข้ามาประกอบ/ช่วยปรับปรุงระบบตัดสินใจให้มีประสิทธิภาพมากขึ้นได้</mark></p></li></ul><h3 id="13e0397c-16b3-8076-bbef-cd833fef10d7" class="block-color-blue">แนวโน้มและเส้นแนวโน้ม</h3><p id="13e0397c-16b3-8072-82f6-eeef1f91c43f" class="">ทิศทางการเคลื่อนไหวของราคาหุ้นไม่ได้เป็นไปในทิศทางเส้นตรง บางครั้งราคาหุ้นอาจมีการปรับตัวเพิ่มขึ้น หรืออาจปรับตัวลดลงในแต่ละช่วงเวลา อย่างไรก็ตาม ในการวิเคราะห์หลักทรัพย์ทางเทคนิคจะตั้งอยู่บนพื้นฐานที่ว่าราคาหลักทรัพย์มีการเคลื่อนไหวแบบเป็นแนวโน้ม (trends) คือ อาจเป็นแนวโน้มขึ้นหรือแนวโน้มลงได้ โดยแนวโน้มที่เกิดขึ้นจะไม่เปลี่ยนแปลงจนกว่าจะมีปัจจัยที่ส่งผลให้ราคาหลักทรัพย์เปลี่ยนทิศทางไป</p><p id="13e0397c-16b3-80f5-bbe8-c30e162b4242" class="">จากแผนภูมิราคาหลักทรัพย์สามารถเขียนเส้นแนวโน้ม (trend lines) ได้ แม้ว่าการเคลื่อนไหวของราคาหลักทรัพย์ในระยะสั้น (รายวัน) จะมีความผันผวนและเปลี่ยนแปลงเร็วมาก แต่ในระยะปานกลางและระยะยาวนั้น การเคลื่อนไหวของราคาหลักทรัพย์สามารถแสดงให้เห็นถึงแนวโน้มการปรับตัว และจะมีความเหมาะสมในการวิเคราะห์ทางเทคนิค แนวโน้มที่ถูกเขียนขึ้นนี้สามารถแสดงถึงแนวรับและแนวต้านตลอดจนแสดงถึงการเปลี่ยนแปลงในทิศทางของราคาหลักทรัพย์ได้</p><ul id="13e0397c-16b3-80fd-b209-f883d3e7eccc" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>แนวโน้ม (trend)</strong></em><p id="13e0397c-16b3-808f-aacc-cf8dd4ffcfba" class=""><mark class="highlight-default">แนวโน้ม (trend) คือ ทิศทางการเคลื่อนไหวของราคาที่มีการเปลี่ยนแปลงขึ้นหรือลงตามอุปสงค์ และอุปทาน สามารถจำแนกประเภทของแนวโน้มออกเป็น 3 ลักษณะ ได้แก่ แนวโน้มขาขึ้น แนวโน้มขาลง และแนวโน้มการแกว่งตัว</mark></p><ul id="13e0397c-16b3-8043-9459-cb6e283618c0" class="bulleted-list"><li style="list-style-type:square">แนวโน้มขาขึ้น (uptrend)<p id="13e0397c-16b3-8079-8ae0-e437fbbdab15" class=""><mark class="highlight-default">เป็นการเคลื่อนไหวของราคาที่มีการปรับตัวขึ้นแต่ละครั้งทำยอดสูงใหม่ที่สูงกว่ายอดสูงเดิม ขณะเดียว กับการปรับตัวลงแต่ละครั้งราคายอดต่ำใหม่สูงกว่าราคายอดต่ำเดิม เป็นเช่นนี้ไปจนกว่ามีการเปลี่ยนแนวโน้ม</mark></p><figure id="13e0397c-16b3-80f8-bd57-ccc02371068a" class="image"><a href="image%2096.png"><img style="width:651.96875px" src="image%2096.png"/></a></figure></li></ul><ul id="13f0397c-16b3-80d2-8c8f-efbe6c271ac8" class="bulleted-list"><li style="list-style-type:circle">แนวโน้มขาลง (downtrend)<p id="13f0397c-16b3-80a2-98f5-de7dd1a9e608" class=""><mark class="highlight-default">เป็นทิศทางการเคลื่อนไหวของราคาที่มีการปรับตัวขึ้นแต่ละครั้งทำยอดสูงใหม่ต่ำกว่ายอดสูงเดิม ขณะเดียวกันการปรับตัวลงแต่ละครั้งราคายอดต่ำใหม่ต่ำกว่าราคายอดต่ำเดิม เป็นเช่นนี้ไปจนกว่ามีการ เปลี่ยนแนวโน้ม</mark></p><figure id="13f0397c-16b3-80e0-95e5-e48ea9839f92" class="image"><a href="image%2097.png"><img style="width:679.984375px" src="image%2097.png"/></a></figure></li></ul><ul id="13f0397c-16b3-8065-88e9-e5f32610faa5" class="bulleted-list"><li style="list-style-type:circle">แนวโน้มการแกว่งตัว (sideway)<p id="13f0397c-16b3-80d9-a402-ca414e185c4b" class=""><mark class="highlight-default">เป็นทิศทางการเคลื่อนไหวของราคาที่มีการปรับตัวขึ้นแต่ละครั้งทำยอดสูงใหม่พอๆ กับยอดสูงเดิม ขณะเดียวกันการปรับตัวลงแต่ละครั้งราคายอดต่ำใหม่ใกล้เคียงหรือเท่ากับยอดต่ำเดิม เป็นเช่นนี้ไปจนกว่า มีราคาผ่านทะลุด้านใดด้านหนึ่งระหว่างยอดสูงหรือยอดต่ำใหม่ จึงจะมีภาพของการเปลี่ยนแนวโน้ม</mark></p><figure id="13f0397c-16b3-80aa-a19f-d3988a6e3ba4" class="image"><a href="image%2098.png"><img style="width:708px" src="image%2098.png"/></a></figure></li></ul></li></ul><ul id="13f0397c-16b3-808d-8bb4-d329d752119e" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>เส้นแนวโน้ม (trend line)</strong></em><p id="13f0397c-16b3-80c7-a118-f7d31b537910" class=""><mark class="highlight-default">เป็นเส้นแสดงทิศทางการเคลื่อนไหวของราคาไปในทิศทางใดทิศทางหนึ่ง จนกว่าจะมีปัจจัยมาส่งผลให้เกิดการกลับทิศทาง โดยผู้ลงทุนจะใช้ประโยชน์ของเส้นแนวโน้มเพื่อดูแนวรับและแนวต้าน รวมทั้งใช้ในการพิจารณาการเปลี่ยนทิศทางของราคา โดยรูปแบบการเคลื่อนไหวของราคาอาจเคลื่อนไหวโดยมีแนวโน้มเป็นเส้นตรงในระยะยาว หรือมีแนวโน้มการเคลื่อนไหวที่ต่างรูปแบบออกไป ดังต่อไปนี้</mark></p><ul id="13f0397c-16b3-80a1-9b25-d66da86fa9eb" class="bulleted-list"><li style="list-style-type:square">เส้นแนวโน้มขึ้น<p id="13f0397c-16b3-8031-bd13-f2d43dde3d38" class="block-color-default"><mark class="highlight-default">เป็นเส้นที่ลากขึ้นระหว่างจุดต่ำสุดกับจุดต่ำสุดโดยจุดต่ำสุดที่ 2 จะอยู่สูงกว่าจุดต่ำสุดที่ 1 และทำให้ เกิดจุดสูงสุดใหม่ขึ้นไป (new high) ดังแสดงตามรูปที่ 7-11</mark></p><figure id="13f0397c-16b3-805d-b555-d53fca63b2c0" class="image"><a href="image%2099.png"><img style="width:707.984375px" src="image%2099.png"/></a></figure></li></ul><ul id="13f0397c-16b3-8040-87e1-c18430b9cb48" class="bulleted-list"><li style="list-style-type:circle">เส้นแนวโน้มลง<p id="13f0397c-16b3-8030-b60b-ca5d817549a2" class=""><mark class="highlight-default">เป็นเส้นแนวโน้มที่ลากขึ้นระหว่างจุดสูงกับจุดสูง โดยที่จุดสูงที่ 2 จะอยู่ต่ำกว่าจุดสูงแรกและจุดต่ำใหม่ (new low) ลงไป ดังแสดงตามรูปที่ 7-12</mark></p><figure id="13f0397c-16b3-80c9-b9c4-d455728b6cad" class="image"><a href="image%20100.png"><img style="width:651.984375px" src="image%20100.png"/></a></figure></li></ul><ul id="13f0397c-16b3-808e-9a46-cf45ad6bdfd2" class="bulleted-list"><li style="list-style-type:circle">เส้นแนวโน้มราบ<p id="13f0397c-16b3-80a0-bd11-e181df0538cb" class=""><mark class="highlight-default">เส้นแนวโน้มราบ (sideways) เป็นลักษณะของการปรับตัวของราคาหุ้นในช่วงแคบๆ (trading range) อาจกล่าวได้ว่าเป็นช่วงที่มีอุปสงค์และอุปทานในหุ้นนั้นๆ ใกล้เคียงกัน ซึ่งไม่ทำให้ตลาดเกิดจุดสูงและจุดต่ำใหม่ (new high หรือ new low) การเขียนเส้นแนวโน้มราบทำโดยการลากเส้นเชื่อมจุดต่ำสุดสามจุดและจุดสูงสุดสามจุด ดังรูปที่ 7-13</mark></p><figure id="13f0397c-16b3-80a0-8bba-e4362b89ce13" class="image"><a href="image%20101.png"><img style="width:651.984375px" src="image%20101.png"/></a></figure></li></ul></li></ul><h2 id="13f0397c-16b3-803b-9a38-c4ccacd1b938" class="block-color-blue">7.1.4 ตัวอย่างการประยุกต์แนวรับและแนวต้านเพื่อการตัดสินใจลงทุน</h2><h3 id="13f0397c-16b3-807d-9904-caf80287eb99" class="block-color-blue">แนวรับและแนวต้าน (support &amp; resistance)</h3><p id="13f0397c-16b3-805c-b2b0-f76939a1b455" class="">เมื่อราคาหุ้นปรับตัวลดลงจนเกิดแรงจูงใจให้มีการซื้อหุ้น ซึ่งทำให้มีอุปสงค์ในหุ้นนั้นมากกว่าอุปทานจะส่งผลให้ราคาหุ้นมีการปรับตัวเพิ่มขึ้น โดยที่ระดับราคาหุ้นที่ต่ำที่สุดที่เกิดขึ้นคือ แนวรับ (support) ในขณะที่แนวต้าน (resistance) เป็นระดับที่ราคาหุ้นปรับตัวเพิ่มขึ้นจนเกิดแรงจูงใจในการขายหุ้น ซึ่งทำให้อุปสงค์น้อยกว่าอุปทานในหุ้นนั้น ราคาหุ้นจึงมีแนวโน้มในการปรับตัวลดลงดังรูปที่ 7-14</p><ul id="13f0397c-16b3-80c3-9274-f06414f3f460" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>แนวรับหรือแนวหนุน (support)</strong></em><p id="13f0397c-16b3-8063-8d52-fbb19b5fe505" class=""><mark class="highlight-default">แนวรับ คือ แนวหรือบริเวณที่มีแรงซื้อเข้ามามาก เมื่อราคามีการปรับตัวลดต่ำลงมา แต่ราคาไม่สามารถผ่านลงไปได้ จนอาจทำให้เกิดการกลับตัวของตลาดจากขาลงเป็นขาขึ้น</mark></p></li></ul><ul id="13f0397c-16b3-803c-ad45-e51a10a255b1" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>แนวต้าน (resistance)</strong></em><p id="13f0397c-16b3-804a-84d6-f268af596f9e" class=""><mark class="highlight-default">แนวต้าน คือ เมื่อราคาเหวี่ยงตัวขึ้นมาถึงจุดๆ หนึ่งจะมีแรงขายออกมามากอย่างต่อเนื่อง จนทำให้ราคาไม่สามารถทะลุผ่านขึ้นไปได้จนอาจทำให้เกิดการกลับตัวจากตลาดขาขึ้นเป็นขาลง</mark></p></li></ul><p id="13f0397c-16b3-8023-8596-e2a65f814d76" class="">ทั้งนี้ เมื่อราคาทะลุผ่านแนวรับ (support) จะกลายเป็นแนวต้าน (resistance) และเมื่อราคาทะลุผ่าน แนวต้าน (resistance) จะกลายเป็นแนวรับ (support) ต่อไป</p><figure id="13f0397c-16b3-8002-b2f0-d3525172e57a" class="image"><a href="image%20102.png"><img style="width:707.984375px" src="image%20102.png"/></a></figure><h3 id="13f0397c-16b3-804a-9122-d1906071c6b8" class="block-color-blue">หลักการวิเคราะห์แนวรับและแนวต้าน (support &amp; resistance)</h3><ul id="13f0397c-16b3-8045-ab63-e61cde29e3d9" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ปริมาณหุ้น (volume) ยิ่งสูงแสดงถึงการเปลี่ยนมือระดับนี้มีมาก ซึ่งจะเพิ่มความสำคัญแก่ Support &amp; Resistance</mark></li></ul><ul id="13f0397c-16b3-80f1-ba19-ec3d9afe1068" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ตัวเลขทางจิตวิทยา นิยมกำหนดให้เป็นตัวเลขกลมๆ เช่น 50, 100, 150, 200, 250, 300 เป็นต้น ใช้เป็นแนวหนุนและแนวต้านทางจิตวิทยา</mark></li></ul><ul id="13f0397c-16b3-80ea-a904-f19fbf86b029" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ยิ่งใช้เวลาทดสอบมากขึ้นเท่าใด แนวหนุนและแนวต้านเหล่านี้จะมีความสำคัญมากขึ้นเท่านั้น</mark></li></ul><ul id="13f0397c-16b3-803a-9d34-df1e0fafada0" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ในแนวโน้มขาขึ้น เมื่อราคาได้ปรับตัวลดลงเข้าหาเส้นแนวโน้มขาขึ้น (up-trendline) ซึ่งทำหน้าที่เป็นเส้นแนวรับ (support) คือ จุด 3 และ 5 จะเป็นจุดที่เข้าซื้อหุ้น โดยมีความเชื่อว่าเมื่อราคาปรับเข้าหาเส้นแนวรับแล้วจะดีดตัวขึ้นสูงในโอกาสต่อไป</mark></li></ul><ul id="13f0397c-16b3-8056-b6e1-e6ad649f193c" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ในแนวโน้มขาขึ้น เมื่อราคาปรับตัวลดลงทะลุเส้นแนวรับ คือ จุด 7 ลงไป จะเป็นจุดขายหรือจุดขายตัดขาดทุน (cut loss) และแนวรับดังกล่าวจะเปลี่ยนไปเป็นแนวต้าน แสดงถึงแนวโน้มเปลี่ยนทิศทางเกิดการกลับตัวจากขาขึ้นเป็นขาลง ดังแสดงตามรูปที่ 7-15.1</mark></li></ul><ul id="13f0397c-16b3-8081-8cbb-e32878fed5f0" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">แนวโน้มขาลง เมื่อราคาปรับตัวเข้าเส้นแนวต้าน (resistance line) คือ จุด 3 และ 5 จะเป็นจุดขาย สำหรับการลงทุนแบบเก็งกำไร (speculate)</mark></li></ul><ul id="13f0397c-16b3-801b-a9be-dcd324d3ac80" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><mark class="highlight-default">ในแนวโน้มขาลง เมื่อราคาปรับตัวสูงขึ้นทะลุแนวต้าน คือ จุด 7 ขึ้นไปได้ จะเป็นจุดเข้าซื้อเนื่องจากแนวโน้มขาลงได้เปลี่ยนทิศทางเป็นขาขึ้น เส้นแนวต้านที่ผ่านมาได้เปลี่ยนไปเป็นแนวรับดังแสดงตามรูปที่ 7-15.2</mark></li></ul><figure id="13f0397c-16b3-805f-9705-e00809138831" class="image"><a href="image%20103.png"><img style="width:707.984375px" src="image%20103.png"/></a></figure><h1 id="13f0397c-16b3-8071-8948-e8cb126d5eb0" class="block-color-blue">บทสรุป</h1><p id="13f0397c-16b3-807d-8327-c12580a864ce" class="">การวิเคราะห์หลักทรัพย์ทางเทคนิคพิจารณาว่า ในเมื่ออุปสงค์ (demand) และอุปทาน (supply) ในหลักทรัพย์ เป็นตัวกำหนดราคาหลักทรัพย์ อีกทั้งการเปลี่ยนแปลงในอุปสงค์และอุปทานในหลักทรัพย์เป็นสาเหตุให้เกิดการเปลี่ยนแปลงในราคาหลักทรัพย์ ดังนั้น ในการวิเคราะห์หลักทรัพย์ ควรมุ่งตรงไปที่การวิเคราะห์รูปแบบของราคาและปริมาณการซื้อขาย โดยเชื่อว่าสามารถพยากรณ์ราคาหลักทรัพย์ได้จากรูปแบบราคาและปริมาณการซื้อขายในอดีต โดยอาศัยแผนภูมิราคาและเครื่องมือทางเทคนิคอื่นๆ รูปแบบกราฟหรือแผนภูมิที่นิยมใช้ในการวิเคราะห์ทางเทคนิค ได้แก่ แผนภูมิแบบเส้น (line chart) แผนภูมิแท่ง (bar chart) และแผนภูมิแท่งเทียน (candlestick chart)</p><p id="13f0397c-16b3-80b5-8e94-d663f15c1bf2" class="">แผนภูมิราคาหลักทรัพย์ นักวิเคราะห์ทางเทคนิคสามารถนำมาวิเคราะห์แนวโน้มได้ โดยทั่วไปสามารถจำแนกประเภทของแนวโน้มออกเป็น 3 ลักษณะ ได้แก่ แนวโน้มขาขึ้น แนวโน้มขาลง และแนวโน้ม การแกว่งตัว</p><figure id="13e0397c-16b3-80ba-97cf-eeec011a927a" class="link-to-page"><a href="chapter6.html">บทที่ 6 การวิเคราะห์บริษัท</a></figure><figure id="13f0397c-16b3-80c3-9f3d-fead6aa99d54" class="link-to-page"><a href="chapter8.html">บทที่ 8 การลงทุนในหลักทรัพย์ต่างประเทศ</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

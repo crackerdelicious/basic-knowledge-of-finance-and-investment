@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>บทที่ 1 ปัจจัยแวดล้อมของการลงทุนและตลาดการเงิน</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="13f0397c-16b3-804b-b6d3-e92003037529" class="page sans"><header><h1 class="page-title">บทที่ 1 ปัจจัยแวดล้อมของการลงทุนและตลาดการเงิน</h1><p class="page-description"></p></header><div class="page-body"><p id="13f0397c-16b3-8061-b6eb-d887c1574e9b" class="">คำว่า “การลงทุน (investment)” ในความหมายแบบกว้าง หมายถึง “การจ่ายเงินเพื่อซื้อสินทรัพย์เช่น สินทรัพย์ทางการเงิน โดยหวังว่าสินทรัพย์นั้นจะมีค่าสูงขึ้น และหรือเพื่อผูกพันการได้มาซึ่งกระแสรายได้จากการถือครองสินทรัพย์นั้น” อาจจำแนกประเภทของการลงทุนเป็น (1) การลงทุนที่แท้จริง (real investment) เป็นการลงทุนในโครงการและหรือกิจการต่างๆ เช่น การก่อตั้งโรงงาน ซื้อเครื่องจักร การสร้างระบบสาธารณูปโภค เป็นต้น อาจกล่าวได้ว่า การลงทุนที่แท้จริง เป็นการจ่ายเงินเพื่อซื้อสินทรัพย์ที่แท้จริง (real assets) เพื่อก่อให้เกิดผลผลิตจากสินทรัพย์ที่ลงทุน โดยมุ่งหวังการสร้างมูลค่าเพิ่มแก่เงินที่ลงทุนไป รวมทั้งสร้างกระแสรายได้ในรูปกำไรจากการประกอบการ (หากเป็นการลงทุนของภาคธุรกิจ) (2) การลงทุนทางการเงิน (financial investment) เป็นการลงทุนในสินทรัพย์การเงิน (financial assets) ซึ่งเป็นสิทธิเรียกร้อง (claims) ในสินทรัพย์ที่แท้จริง สิทธิเรียกร้องนี้ อาจเป็นสิทธิเรียกร้องในฐานะเจ้าของ หรือในฐานะเจ้าหนี้</p><p id="13f0397c-16b3-8065-bffe-cd80f4c6edf2" class="">ตำราเล่มนี้มีเนื้อหามุ่งเน้นการลงทุนทางการเงิน ซึ่งโดยทั่วไปอาจใช้คำว่า การลงทุนในหลักทรัพย์ทั้งนี้เนื่องจากตราสารที่แสดงสิทธิเรียกร้องที่กล่าวถึงข้างต้น เรียกกันว่าเป็น ตราสารการเงิน (financial instruments) หรือ หลักทรัพย์ (securities) ตัวอย่างของตราสารการเงินหรือหลักทรัพย์ ได้แก่ (1) ตราสารทุน เช่น หุ้นสามัญ (ผู้ถือมีสิทธิเรียกร้องในรายได้ในอนาคตและสินทรัพย์ของกิจการ ในฐานะเจ้าของกิจการ) (2) ตราสารหนี้ระยะยาว เช่น พันธบัตรรัฐบาล หุ้นกู้ (ผู้ถือมีสิทธิเรียกร้องในรายได้ในอนาคตและสินทรัพย์ของกิจการ ในฐานะเจ้าหนี้ของกิจการ) (3) ตราสารหนี้ระยะสั้นในตลาดเงิน ที่มีสภาพคล่องสูงใกล้เคียงเงินสด เช่น ตั๋วเงินคลัง ตั๋วแลกเงิน (4) นอกจากนั้นตราสารการเงินหรือหลักทรัพย์ ยังครอบคลุมถึงหลักทรัพย์อนุพันธ์ (derivative securities) ทั้งหลักทรัพย์อนุพันธ์ที่เชื่อมโยงโดยตรงกับกิจการผู้ออกตราสารการเงิน เช่น ใบสำคัญแสดงสิทธิที่จะซื้อหุ้นสามัญระยะยาวหรือวอร์แรนท์ และตราสารอนุพันธ์อื่นๆ เช่น ใบสำคัญแสดงสิทธิอนุพันธ์ สัญญาซื้อขายล่วงหน้าฟิวเจอร์ส เป็นต้น</p><p id="13f0397c-16b3-80c6-bf9b-e1af334d3c07" class="">ตามที่กล่าวข้างต้นว่า เนื้อหาในหนังสือนี้ มุ่งเน้นที่การลงทุนทางการเงินเป็นสำคัญ อย่างไรก็ตามการลงทุนที่แท้จริง และระบบเศรษฐกิจโดยรวม เป็นปัจจัยแวดล้อมที่สำคัญอย่างหนึ่งของการลงทุนทางการเงิน ผู้ลงทุนจึงควรเข้าใจในความสัมพันธ์และความสำคัญของปัจจัยแวดล้อมเหล่านี้ เนื้อหาในบทที่ 1 จะมุ่งอธิบายให้เห็นความเชื่อมโยงระหว่างระบบเศรษฐกิจและระบบการเงิน การเคลื่อนย้ายของเงินทุนในระบบเศรษฐกิจ โดยเนื้อหาจะมุ่งเน้นโครงสร้างของตลาดการเงิน โดยเฉพาะอย่างยิ่งตลาดทุน</p><h1 id="13f0397c-16b3-808b-9206-fd0e6ac78014" class="block-color-blue">1.1 ปัจจัยแวดล้อมการลงทุน</h1><p id="13f0397c-16b3-8032-a14f-fabd8f859a23" class="">การลงทุนที่แท้จริง (real investment) อาจเป็นการลงทุนทั้งจากภาครัฐและจากภาคเอกชน ตัวอย่างการลงทุนที่แท้จริงจากภาครัฐ เช่น การลงทุนระบบการขนส่ง เครือข่ายโทรคมนาคม ระบบสาธารณูปโภค สร้างโรงเรียน สร้างฝายเก็บน้ำ เป็นต้น ตัวอย่างการลงทุนที่แท้จริงจากภาคเอกชน เช่น การลงทุนก่อตั้งกิจการใหม่ การขยายโรงงาน การซื้อเครื่องจักรเพิ่มเติม การลงทุนในสินค้าคงคลัง เป็นต้น การลงทุนที่แท้จริงเหล่านี้ย่อมต้องอาศัยเงินเพื่อการลงทุน ซึ่งมาจากเงินออมของภาคเศรษฐกิจต่างๆ ได้แก่ ภาครัฐบาล ภาคธุรกิจ รวมทั้งภาคครัวเรือน อย่างไรก็ตาม ในระบบเศรษฐกิจระดับประเทศ การที่จะทำให้ผู้ที่มีเงินออมกับผู้ที่ต้องการเงินทุนติดต่อกันโดยตรงนั้น แทบจะเป็นไปไม่ได้ จึงมีความจำเป็นต้องมีสถาบันการเงินและตลาดการเงินมาอำนวยความสะดวกในการระดมเงินออมและจัดสรรเงินทุน ดังนั้น แม้จุดมุ่งหมายหลักของหนังสือนี้จะมุ่งที่การลงทุนในหลักทรัพย์หรือตราสารการเงิน (financial investment) การเข้าใจในบทบาทของระบบเศรษฐกิจและระบบการเงิน ซึ่งเป็นปัจจัยแวดล้อมทางการเงินที่สำคัญ จึงช่วยให้ผู้ลงทุนเห็นความเชื่อมโยงระหว่างกันของปัจจัยแวดล้อมเหล่านี้</p><h2 id="13f0397c-16b3-8040-b8cc-ea66d3212b55" class="block-color-blue">ความเชื่อมโยงของระบบเศรษฐกิจและระบบการเงิน</h2><p id="13f0397c-16b3-80dd-93eb-d7aca57746aa" class="">ในระบบเศรษฐกิจเสรี การจัดสรรทรัพยากรระหว่างภาคเศรษฐกิจ ทั้งภาครัฐบาล ภาคธุรกิจ รวมถึงภาคครัวเรือน ที่มีความต้องการใช้เงินทุน อาจประสบกับเงินทุนที่มีอยู่ไม่เพียงพอกับความต้องการ ดังนั้น ระบบการเงิน (financial system) จึงเป็นกลไกสำคัญในการระดมเงินทุนจากผู้ที่มีเงินออม แล้วจัดสรรไปยังผู้ที่ต้องการใช้เงินทุน หากการจัดสรรเงินทุนมีประสิทธิภาพจะช่วยส่งเสริมให้เกิดการลงทุน การผลิต การจ้างงาน และการบริโภคขยายตัวมากขึ้น ซึ่งจะส่งผลให้ระบบเศรษฐกิจขยายตัวและมีเสถียรภาพมากยิ่งขึ้น</p><p id="13f0397c-16b3-80ca-9b56-f4d179710681" class="">อย่างไรก็ตาม หากระบบการเงินไม่มีประสิทธิภาพ หรือมีแหล่งเงินทุนไม่เพียงพอกับความต้องการใช้เงินทุน อาจทำให้ต้นทุนของเงินทุนสูงขึ้น จนเป็นภาระต่อภาคการผลิต ซึ่งจะทำให้ภาคการผลิตจำเป็นต้องปรับราคาสินค้าเพิ่มขึ้น ทำให้กระทบต่อค่าครองชีพของภาคครัวเรือน ในกรณีสินค้าและบริการบางประเภทที่ภาคครัวเรือนสามารถลดหรือชะลอการบริโภคได้ การขึ้นราคาสินค้าและบริการจะทำให้ปริมาณความต้องการบริโภคสินค้าและบริการของภาคครัวเรือนลดลง ซึ่งในท้ายที่สุดเมื่อภาคการผลิตขายสินค้าได้น้อยลง ก็อาจจะตัดสินใจลดปริมาณการผลิต ลดจำนวนพนักงานลง หรืออาจจะเลิกกิจการ ซึ่งเหตุการณ์ดังกล่าวย่อมส่งผลกระทบในทางลบต่อระบบเศรษฐกิจของประเทศอย่างไม่มีทางหลีกเลี่ยงได้ ดังนั้น ระบบการเงินจึงมีความเชื่อมโยงและมีความสำคัญกับระบบเศรษฐกิจอย่างมีนัยสำคัญ</p><h2 id="13f0397c-16b3-80dd-b6d2-d207c9656241" class="block-color-blue">กระแสหมุนเวียนของรายได้และค่าใช้จ่าย</h2><p id="13f0397c-16b3-8004-a037-f06a4ee0d0fa" class="">หากพิจารณาตัวแบบของเศรษฐกิจอย่างง่าย คือกำหนดให้ในระบบเศรษฐกิจมีเฉพาะภาคธุรกิจกับภาคครัวเรือน จะสามารถสรุปกระแสการหมุนเวียนของรายได้และค่าใช้จ่าย ได้ตามรูปที่ 1-1 ทั้งนี้ ภาคธุรกิจผลิตสินค้าและบริการ โดยใช้ปัจจัยการผลิตจากภาคครัวเรือน ปัจจัยการผลิต (ได้แก่ ที่ดิน แรงงาน ทุน ผู้ประกอบการ) เหล่านี้ ถูกส่งไปยังภาคธุรกิจ (ดูลูกศร ก.) ดังนั้น ภาคครัวเรือนจึงมีรายได้ ได้แก่ ค่าจ้าง ค่าเช่า ดอกเบี้ย และกำไร จากการอำนวยปัจจัยการผลิตดังกล่าว (ดูลูกศร ข.) ทั้งนี้ เมื่อภาคธุรกิจส่งสินค้าและบริการไปขายให้ครัวเรือน (ดูลูกศร ค.) จึงมีการหมุนเวียนของรายจ่ายซื้อสินค้าและบริการจากภาคครัวเรือนไปยังภาคธุรกิจ (ดูลูกศร ง.)</p><figure id="13f0397c-16b3-808a-a246-c7f65a7fe8a3" class="image"><a href="image.png"><img style="width:634.96875px" src="image.png"/></a></figure><p id="13f0397c-16b3-805d-b99b-ce7bb288a9b9" class="">อย่างไรก็ตาม ในระบบเศรษฐกิจที่ดำรงอยู่จริงในระดับประเทศ นอกจากภาคธุรกิจและภาคครัวเรือนแล้ว ยังมีภาครัฐ ภาคการเงิน และภาคต่างประเทศด้วย โดยภาครัฐมีส่วนในการซื้อสินค้าและบริการจากภาคธุรกิจด้วย ทั้งนี้ ภาครัฐอาจมีการจ่ายเงินอุดหนุนให้ภาคธุรกิจบางส่วน และจ่ายเงินโอน เช่น รัฐสวัสดิการให้ภาคครัวเรือน โดยภาครัฐมีรายได้จากภาษีที่จัดเก็บจากภาคครัวเรือนและจากภาคธุรกิจ ส่วนภาคการเงินหรือระบบการเงินมีบทบาทในการระดมเงินออม (เช่น เงินออมจากภาคครัวเรือน) และจัดสรรเงินลงทุนไปยังภาคธุรกิจและภาครัฐ สำหรับภาคต่างประเทศนั้น มีบทบาททั้งต่อตลาดสินค้าและบริการ (การส่งออกและนำเข้า) และบทบาทในฐานะผู้ที่มาลงทุนในระบบการเงินในประเทศ รวมทั้งมีบทบาทระดมเงินทุนจากระบบการเงินในประเทศออกไปลงทุนนอกประเทศ เนื้อหาในส่วนต่อไปนี้ จะขยายความในประเด็นของบทบาทของระบบการเงินในประเทศ</p><h2 id="13f0397c-16b3-806a-9863-ceaef0d00181" class="block-color-blue">ความหมายและความสำคัญของระบบการเงิน</h2><p id="13f0397c-16b3-809c-a19c-fdc7fbb6a3f7" class="">ภาคธุรกิจมักต้องการเงินทุนเพื่อการขยายกิจการและหรือก่อตั้งกิจการใหม่ ภาครัฐก็มีความต้องการเงินทุนเพื่อลงทุนในโครงการต่างๆ ทางด้านภาคครัวเรือนมักต้องการกู้ยืมเงินเพื่อซื้อรถ บ้าน และสิ่งจำเป็นอื่นๆ ในอีกด้านหนึ่ง บางส่วนของภาคธุรกิจและภาคครัวเรือน อาจมีรายได้มากกว่าค่าใช้จ่าย หรือมีเงินออม เงินออมเหล่านี้ จึงเป็นแหล่งเงินทุนสำหรับภาคธุรกิจ ภาครัฐ และภาคครัวเรือน เมื่อมีการระดมเงินออมจากแหล่งต่างๆ มาใช้เป็นเงินทุนและเงินกู้ในการดำเนินธุรกิจ การลงทุนในโครงการของภาครัฐ และการใช้จ่ายภาคครัวเรือน จึงเกิดการเคลื่อนย้ายของเงินทุนในระบบเศรษฐกิจขึ้น</p><h3 id="13f0397c-16b3-8046-8068-f77831aac23b" class="block-color-blue"><em><strong>การเคลื่อนย้ายของเงินทุนในระบบเศรษฐกิจ</strong></em></h3><p id="13f0397c-16b3-8048-b253-c7753dc7a7e0" class="">รูปที่ 1-2 แสดงแผนผังกระบวนการเคลื่อนย้ายของเงินทุนในระบบเศรษฐกิจ 3 รูปแบบ คือ</p><ol type="1" id="13f0397c-16b3-8066-b649-ed0f1d8104ef" class="numbered-list" start="1"><li>การเคลื่อนย้ายเงินทุนโดยตรง</li></ol><ol type="1" id="13f0397c-16b3-8087-93f8-f4f22d8715a9" class="numbered-list" start="2"><li>การเคลื่อนย้ายเงินทุนในตลาดการเงิน โดยมีกิจการวาณิชธนกิจช่วยอำนวยความสะดวก</li></ol><ol type="1" id="13f0397c-16b3-8078-9f17-d054b44a2340" class="numbered-list" start="3"><li>การเคลื่อนย้ายเงินทุนโดยอ้อม ผ่านตัวกลางทางการเงิน</li></ol><p id="13f0397c-16b3-80cb-b598-dea95b3a4185" class="">ทั้งนี้ เพื่อมิให้แผนผังมีความซับซ้อน ในรูปนี้จึงระบุถึงผู้ที่ต้องการใช้เงินทุนว่า “ธุรกิจ” โดยมิได้กล่าวถึงภาครัฐและภาคครัวเรือน</p><h3 id="13f0397c-16b3-8043-a32e-e69af8f1a27e" class="block-color-blue"><em><strong>การเคลื่อนย้ายเงินทุนโดยตรง</strong></em></h3><p id="13f0397c-16b3-80b5-83bf-c57a17fc4818" class="">การเคลื่อนย้ายเงินทุนจากผู้มีเงินออม ไปยังธุรกิจที่ต้องการใช้เงินทุน อาจเป็นการเคลื่อนย้ายโดยตรงโดยไม่ต้องอาศัยหน่วยงานอื่นช่วยอำนวยความสะดวก เช่น กรณีกิจการขนาดย่อมและขนาดเล็ก ที่ต้องการระดมเงินทุนจากบุคคลใกล้ชิด หรือการกู้ยืมจากผู้ร่วมทุน การระดมเงินทุนในขอบเขตจำกัดดังกล่าว สามารถกระทำได้โดยตรง เงินทุนลักษณะนี้ จึงเคลื่อนย้ายจากผู้มีเงินออมไปยังธุรกิจที่ต้องการเงินทุนโดยตรงดังแสดงในแผนผังย่อย 1 ของรูปที่ 1-2 ทั้งนี้ ในกรณีการระดมเงินทุนส่วนของเจ้าของ เช่น การเพิ่มทุนของบริษัท คำว่า “หลักทรัพย์ที่ออกโดยธุรกิจ” หมายถึง หุ้นสามัญที่ออกใหม่เพิ่มเติมเพื่อระดมเงินทุนส่วนในกรณีการระดมเงินทุนโดยการกู้ยืม คำว่า “หลักทรัพย์ที่ออกโดยธุรกิจ” หมายถึง สัญญากู้ยืมเงินระหว่างธุรกิจกับผู้ให้กู้</p><h3 id="13f0397c-16b3-8010-a595-e73a1c309987" class="block-color-blue"><em><strong>การเคลื่อนย้ายเงินทุนโดยอาศัยตลาดการเงิน</strong></em></h3><p id="13f0397c-16b3-80e0-adf9-c5e0263e2415" class="">ในกรณีที่ธุรกิจขนาดใหญ่และต้องการระดมเงินทุนเป็นจำนวนมาก ธุรกิจอาจไม่สามารถระดมเงินทุนจากผู้มีเงินออมได้โดยตรง ในแผนผังย่อย 2 ของรูปที่ 1-2 แสดงการเคลื่อนย้ายของเงินทุนจากผู้มีเงินออม โดยธุรกิจผู้ต้องการเงินทุนออกหลักทรัพย์มาจำหน่ายแก่ผู้มีเงินออมที่ต้องการลงทุนในตลาดการเงิน (financial market) (เช่น ตลาดตราสารทุน ตลาดตราสารหนี้) กระบวนการออกหลักทรัพย์และจำหน่ายหลักทรัพย์ในวงกว้างเช่นนี้ มีกิจการวาณิชธนกิจ (investment banking houses) ช่วยอำนวยความสะดวก</p><figure id="13f0397c-16b3-80c2-b3da-e4599ccea05c" class="image"><a href="image%201.png"><img style="width:707.984375px" src="image%201.png"/></a></figure><p id="13f0397c-16b3-80fd-a086-db1be2adac33" class="">ทั้งนี้ ในกรณีที่ธุรกิจต้องการระดมเงินทุนโดยการเพิ่มทุนส่วนของเจ้าของ คำว่า “หลักทรัพย์ที่ออกโดยธุรกิจ” หมายถึง ตราสารทุน ได้แก่ หุ้นสามัญและหุ้นบุริมสิทธิที่ธุรกิจออกมาเพื่อระดมเงินทุน ส่วนในกรณีที่ธุรกิจต้องการระดมเงินทุนโดยการกู้ยืม คำว่า “หลักทรัพย์ที่ออกโดยธุรกิจ” หมายถึง หุ้นกู้ที่ธุรกิจผู้กู้ออกมาจำหน่าย ทั้งนี้ ในประเทศไทย “กิจการวาณิชธนกิจ (investment banking houses)” ที่กล่าวถึงข้างต้นเป็นหน่วยงานหนึ่งในบริษัทหลักทรัพย์ รวมทั้งธนาคารพาณิชย์ต่างๆ</p><p id="13f0397c-16b3-808c-b429-dfb4d72fb878" class="">อนึ่ง เนื่องจากเรื่อง “ตลาดการเงิน” มีสาระสำคัญอยู่หลายประเด็นที่ผู้แนะนำการลงทุนพึงทำความ เข้าใจ รายละเอียดเรื่องนี้จะแยกไปอธิบายในหัวข้อ 1.2</p><h3 id="13f0397c-16b3-8089-a11d-da9259745399" class=""><em><mark class="highlight-blue"><strong>การเคลื่อนย้ายเงินทุนโดยอ้อมผ่านตัวกลางทางการเงิน</strong></mark></em></h3><p id="13f0397c-16b3-80f8-a60f-d935872e9f2c" class="">ในแผนผังย่อย 3 ของรูปที่ 1-2 แสดงการเคลื่อนย้ายเงินทุนโดยอ้อมผ่านตัวกลางทางการเงิน (financial intermediary) ทั้งนี้ องค์กรที่มีบทบาทสำคัญในการเป็นตัวกลางทางการเงิน ได้แก่ ธนาคารพาณิชย์ซึ่งระดมเงินทุนโดยการรับฝากเงินจากผู้มีเงินออม แล้วจัดสรรเงินทุนไปยังธุรกิจผู้ต้องการเงินทุนโดยการให้กู้ ดังนั้น ในกรณีที่ธนาคารพาณิชย์ทำหน้าที่เป็นตัวกลางทางการเงินตามตัวอย่างข้างต้น คำว่า “หลักทรัพย์ที่ออกโดยตัวกลางทางการเงิน” จึงหมายถึงเอกสารรับฝากเงิน เช่น สมุดคู่ฝาก และคำว่า “หลักทรัพย์ที่ออกโดยธุรกิจ” จึงหมายถึง สัญญาเงินกู้ระหว่างธุรกิจที่กู้ยืมเงินกับธนาคารพาณิชย์ผู้ให้กู้</p><p id="13f0397c-16b3-8005-b4b1-d3fac3b70c93" class="">นอกจากธนาคารพาณิชย์ สถาบันการเงินอื่นๆ ก็มีบทบาทเป็นตัวกลางทางการเงินเช่นกัน สถาบันการเงิน ทำหน้าที่เป็นตัวกลางระหว่างผู้ให้กู้ และผู้ขอกู้ โดยเป็นผู้รับความเสี่ยงจากการให้กู้ยืมแทน โดยมีรายได้จากความแตกต่างระหว่างอัตราดอกเบี้ยที่ได้รับจากผู้ขอกู้ และอัตราดอกเบี้ยที่ต้องจ่ายให้แก่เจ้าของเงินทุน กล่าวโดยรวม สถาบันการเงินที่มีบทบาทเป็นตัวกลางทางการเงิน ได้แก่</p><ol type="1" id="13f0397c-16b3-8033-87e9-c7aad2bbe5de" class="numbered-list" start="1"><li>ธนาคารพาณิชย์ ทำหน้าที่เป็นตัวกลางในการระดมเงินฝากจากผู้ฝากเงินเพื่อปล่อยให้กู้ยืมแก่ภาคครัวเรือน ภาคธุรกิจ</li></ol><ol type="1" id="13f0397c-16b3-800c-a1a0-dab25ced557a" class="numbered-list" start="2"><li>บริษัทเงินทุน ทำหน้าที่ระดมเงินทุนจากประชาชนในรูปของตั๋วสัญญาใช้เงิน และใช้เงินนั้นในการประกอบกิจการเงินทุนเพื่อการพาณิชย์ กิจการเงินทุนเพื่อการพัฒนา กิจการเงินทุนเพื่อการจำหน่ายและการบริโภค และกิจการเงินทุนเพื่อการเคหะ</li></ol><ol type="1" id="13f0397c-16b3-80eb-8eb3-c2317cd78075" class="numbered-list" start="3"><li>บริษัทเครดิตฟองซิเอร์ ทำหน้าที่ระดมเงินทุนจากประชาชนในรูปของตั๋วสัญญาใช้เงิน และใช้เงินนั้นเพื่อให้กู้ยืม โดยวิธีรับจำนองอสังหาริมทรัพย์ รับซื้ออสังหาริมทรัพย์ตามสัญญาขายฝาก เป็นต้น</li></ol><ol type="1" id="13f0397c-16b3-80a3-b899-c68e655abf9e" class="numbered-list" start="4"><li>สถาบันการเงินเฉพาะกิจ จะมีกฎหมายเฉพาะในการจัดตั้ง โดยมีวัตถุประสงค์เพื่อสนองนโยบายในการส่งเสริมและพัฒนาเฉพาะด้าน เช่น ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร ธนาคารออมสิน ธนาคารอาคารสงเคราะห์ และธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย เป็นต้น</li></ol><ol type="1" id="13f0397c-16b3-806b-804a-e95f445ec7b3" class="numbered-list" start="5"><li>สหกรณ์ออมทรัพย์และสหกรณ์เครดิตยูเนียน ซึ่งสมาชิกจะสะสมทรัพย์ร่วมกันเพื่อเป็นทุน ดำเนินการให้สมาชิกที่มีความเดือดร้อนเป็นผู้กู้ยืมนำไปใช้ และผลประโยชน์ที่เกิดขึ้นจะจัดสรรสู่สมาชิกในรูปแบบของดอกเบี้ย เงินปันผล และสวัสดิการต่างๆ</li></ol><ol type="1" id="13f0397c-16b3-80b2-b924-f4cbed16807b" class="numbered-list" start="6"><li>โรงรับจำนำ เป็นสถานที่รับจำนำสิ่งของเป็นประกัน จำกัดจำนวนเงินแต่ละรายไม่เกินหนึ่งแสนบาท โดยมีข้อตกลงว่าจะได้ไถ่คืนในภายหลัง</li></ol><ol type="1" id="13f0397c-16b3-809d-8938-d2c6774c0c47" class="numbered-list" start="7"><li>บริษัทที่ให้สินเชื่อ เป็นธุรกิจที่ไม่รับฝากเงินจากประชาชน แต่ให้กู้ยืมแก่ผู้ที่ต้องการเงินทุน เช่น บัตรเครดิต และสินเชื่อส่วนบุคคล เป็นต้น </li></ol><ol type="1" id="13f0397c-16b3-805c-aaf9-c077f0cfb315" class="numbered-list" start="8"><li>ธุรกิจประกันภัยและประกันชีวิต ทำหน้าที่ประกันความเสี่ยงโดยการโอนความเสี่ยงระหว่างกลุ่มที่ไม่ต้องการความเสี่ยงกับกลุ่มที่สามารถรองรับความเสี่ยงนั้นได้ โดยธุรกิจประกันภัยและประกันชีวิตจะได้รับค่าเบี้ยประกัน และสามารถนำเงินที่ระดมได้ในรูปของเบี้ยประกันนี้ไปให้กู้หรือลงทุนระยะยาวเพื่อให้มีผลตอบแทนที่สูงขึ้น ทั้งนี้ ธุรกิจประกันภัยและประกันชีวิตอยู่ภายใต้การกำกับดูแลของสำนักงานคณะกรรมการกำกับและส่งเสริมการประกอบธุรกิจ ประกันภัย (คปภ.)</li></ol><p id="13f0397c-16b3-80c0-ac9d-ef0e2e4076a5" class="">นอกจากสถาบันการเงินต่างๆ แล้ว กองทุนรวม ก็มีบทบาทเป็นตัวกลางทางการเงิน กองทุนรวมระดมเงินออมโดยการออกหน่วยลงทุนมาจำหน่าย และนำเงินที่ได้จากการจำหน่ายหน่วยลงทุน ไปลงทุนตามวัตถุประสงค์ที่ตั้งไว้ รวมถึงตัวกลางทางการเงินในรูปแบบอื่นๆ ได้แก่ กองทุนต่างๆ ที่ระดมเงินจากลูกจ้างและนายจ้าง ได้แก่ กองทุนประกันสังคม กองทุนสำรองเลี้ยงชีพ กองทุนบำเหน็จบำนาญข้าราชการ</p><h2 id="13f0397c-16b3-805a-989c-ec685bade517" class="block-color-blue">บทบาทหน้าที่ของระบบการเงิน</h2><p id="13f0397c-16b3-8083-ada8-cd954a9d67f0" class="">ระบบการเงิน มีบทบาทหน้าที่ในการเป็นแหล่งเงินทุนแก่ภาคธุรกิจ ภาครัฐ และภาคครัวเรือน ที่ต้องการใช้เงินทุน ดังนั้น จึงอาจกล่าวได้ว่าหน้าที่ของระบบการเงินได้ครอบคลุมกิจกรรมในด้านต่างๆ ที่สำคัญ ดังนี้</p><h3 id="13f0397c-16b3-8031-a2ed-e906e00105ad" class="block-color-blue"><em><strong>ส่งเสริมการออม (saving function)</strong></em></h3><p id="13f0397c-16b3-8046-8ba6-e3f8c7c020e9" class="">ในอดีตช่วงที่ยังไม่มีระบบการเงินหรือการพัฒนาระบบการเงินยังไม่สมบูรณ์และมีประสิทธิภาพนั้นหากผู้ที่มีเงินเหลือใช้จากการใช้จ่ายของตนและต้องการจะออมเงินดังกล่าวไว้ใช้ในอนาคตอาจสามารถทำได้โดยการเก็บเงินจำนวนดังกล่าวไว้กับตนเอง ซึ่งการออมในลักษณะดังกล่าวนี้ไม่สามารถที่จะก่อให้เกิดผลประโยชน์ที่เพิ่มขึ้นจากการออมเงินได้ ดังนั้น เมื่อมีการพัฒนาระบบการเงิน ในรูปของสถาบันการเงิน ต่างๆ ที่ระดมเงินออมและจัดสรรเงินทุน สถาบันการเงินเหล่านี้ ให้บริการในลักษณะของการรับฝากเงินแก่ผู้ที่ต้องการออมเงิน และสามารถเสนออัตราผลตอบแทนแก่ผู้ออมเงินในรูปของดอกเบี้ยเงินฝาก ต่อมาเมื่อมีการพัฒนาตราสารการเงิน เช่น หุ้นกู้ หุ้นสามัญ ผู้ออมจึงสามารถออมเงินในลักษณะของการลงทุนในตราสารการเงินเหล่านี้ ดังนั้น ในระบบการเงินที่มีการพัฒนา จึงมีช่องทางในการสนับสนุน และส่งเสริมการออมสำหรับผู้ที่ต้องการออมเงินในลักษณะต่างๆ หลากหลายยิ่งขึ้น</p><h3 id="13f0397c-16b3-8061-a084-d2202e58f8f8" class="block-color-blue"><em><strong>สนับสนุนการระดมเงินลงทุนและสร้างสภาพคล่อง (liquidity function)</strong></em></h3><p id="13f0397c-16b3-800a-92a3-c5e06f7843ad" class="">เมื่อธุรกิจมีความต้องการใช้เงินลงทุนในปริมาณที่มากกว่าเงินทุนจากแหล่งเงินทุนภายใน (จากกำไรสะสมของธุรกิจเอง) ธุรกิจสามารถระดมเงินลงทุนเพิ่มเติมจากผู้ถือหุ้นเดิมหรือผู้ลงทุนอื่นๆ ในวงแคบ อย่างไรก็ตาม การระดมเงินลงทุนโดยตรงจากเจ้าของเงินทุนดังกล่าว อาจทำให้ธุรกิจได้รับเงินลงทุนในปริมาณที่ไม่เพียงพอต่อความต้องการ ต่อมาเมื่อมีระบบการเงินเกิดขึ้น ธุรกิจจึงมีโอกาสในการระดมเงินลงทุนผ่านระบบการเงินทั้งในประเทศ และต่างประเทศเพื่อให้มีปริมาณเงินลงทุนเพียงพอต่อความต้องการของธุรกิจ ดังนั้น ระบบการเงินจึงเป็นช่องทางที่ธุรกิจสามารถเลือกใช้ในการระดมเงินลงทุนหรือสนับสนุน การระดมเงินลงทุนของธุรกิจได้</p><h3 id="13f0397c-16b3-80cc-8ef6-c27522719b7d" class=""><em><mark class="highlight-blue"><strong>รักษาความมั่งคั่งของเงินออม (wealth function)</strong></mark></em></h3><p id="13f0397c-16b3-80d4-aa89-fc099ed391f6" class="">จากบทบาทหน้าที่ของระบบการเงินในการสนับสนุนการออมดังที่กล่าวไว้ข้างตัน การออมผ่านระบบการเงินก่อให้เกิดโอกาสในการได้รับผลตอบแทนแก่เงินออม ซึ่งเปรียบเสมือนเป็นการรักษาความมั่งคั่งหรือมูลค่าของเงินออมให้ยังคงอยู่ เนื่องจากหากผู้มีเงินออมเก็บเงินออมไว้กับตนเอง เงินออมเหล่านั้นย่อมมีการเสื่อมมูลค่าลงไปได้ตามระยะเวลาที่ผ่านไป โดยที่การเสื่อมค่าหรือลดค่าลงของเงินออมนั้นเป็นผลมาจากการเกิดเงินเฟ้อ (inflation) ในระบบเศรษฐกิจ ผลของการเกิดเงินเฟ้อจะทำให้อำนาจซื้อของเงินในจำนวนเท่าเดิมลดลง ซึ่งจะส่งผลกระทบกับความมั่งคั่งของเจ้าของเงินออมในอนาคต ดังนั้น การออมเงินโดยผ่านระบบการเงินจึงเป็นช่องทางที่สามารถรักษามูลค่า หรือความมั่งคั่งของผู้มีเงินออมไว้ให้คงอยู่ได้ในอนาคต</p><h3 id="13f0397c-16b3-808b-b8f2-d88a112d8bb5" class=""><em><mark class="highlight-blue"><strong>บริการด้านการชำระราคา (payment function)</strong></mark></em></h3><p id="13f0397c-16b3-80f7-a866-f04e24ed2ac5" class="">ในปัจจุบันสถาบันการเงิน เช่น ธนาคารพาณิชย์ ซึ่งถือเป็นองค์ประกอบหนึ่งของระบบการเงินมีการพัฒนาและปรับปรุงรูปแบบในการให้บริการในลักษณะที่มีความหลากหลายเพิ่มขึ้น เช่น การให้บริการโอนเงินโดยการตัดยอดบัญชีเงินฝากในการจ่ายชำระค่าสินค้าหรือบริการต่างๆ เช่น ค่าไฟฟ้า ค่าน้ำประปา ค่าโทรศัพท์ เป็นต้น</p><h3 id="13f0397c-16b3-8028-818b-fe320751690b" class=""><em><mark class="highlight-blue"><strong>การประเมินเครดิต (credit function)</strong></mark></em></h3><p id="13f0397c-16b3-80e2-b3f4-e674376d15ce" class="">การระดมเงินทุนจากแหล่งเงินทุนนอกธุรกิจ หากผู้ขอกู้มีความน่าเชื่อถือ หรือมีเครดิตที่ดีในสายตาของผู้ให้กู้ย่อมส่งผลให้โอกาสที่ผู้ขอกู้จะได้รับเงินลงทุนตามที่ต้องการมีมากยิ่งขึ้น รวมทั้ง ยังส่งผลต่อตันทุนในการกู้ยืมของผู้ขอกู้รายนั้นๆ ต่ำลงอีกด้วย </p><h3 id="13f0397c-16b3-8094-89d0-e9e45da5589a" class=""><em><mark class="highlight-blue"><strong>ช่องทางในการบริหารความเสี่ยง (risk function)</strong></mark></em></h3><p id="13f0397c-16b3-8091-b880-faeee8a7806b" class="">การบริหารความเสี่ยงในการดำเนินธุรกิจ เช่น ในกรณีที่ธุรกิจมีการประกอบกิจการหรือดำเนินธุรกิจในการนำเข้าสินค้าจากต่างประเทศทำให้รายได้จากการดำเนินธุรกิจเป็นเงินสกุลบาท ขณะที่ธุรกิจมีรายจ่ายเป็นเงินสกุลต่างประเทศ ดังนั้น หากเกิดการอ่อนค่าลงของเงินบาทย่อมส่งผลถึงต้นทุนของธุรกิจที่จะเพิ่มสูงขึ้นจากการที่ต้องใช้เงินบาทมากขึ้นในการจ่ายชำระราคาสินค้าจากต่างประเทศในราคาเดิม ดังนั้น ธุรกิจอาจใช้การบริหารความเสี่ยงผ่านระบบการเงินโดยใช้การทำสัญญาซื้อเงินสกุลต่างประเทศล่วงหน้า (forward) กับธนาคารพาณิชย์ให้ตรงกับความต้องการใช้เงินสกุลดังกล่าวในอนาคต บนระดับอัตราแลกเปลี่ยนที่ได้ตกลงกันไว้ล่วงหน้าเพื่อเป็นการป้องกันความเสี่ยงจากการอ่อนค่าลง (depreciation) ของเงินบาท ในอนาคต</p><h3 id="13f0397c-16b3-80be-80f5-fabb28ea708c" class=""><em><mark class="highlight-blue"><strong>เป็นเครื่องมือในการบริหารเศรษฐกิจของภาครัฐ (policy function)</strong></mark></em></h3><p id="13f0397c-16b3-80ae-8ace-d982a3de7147" class="">ในการบริหารเศรษฐกิจให้ประสบผลสำเร็จดังที่รัฐบาลได้ตั้งเป้าหมายไว้ ระบบการเงินถือเป็นอีกเครื่องมือหนึ่งที่สำคัญในการบริหารเศรษฐกิจของรัฐบาล ปัจจุบันภายใต้ระบบการบริหารจัดการค่าเงินบาทในระบบอัตราแลกเปลี่ยนลอยตัวที่มีการจัดการ (managed float) พบว่าภาครัฐบาล โดยธนาคารแห่งประเทศไทยได้ใช้ช่องการควบคุมดูแลค่าเงินบาทให้มีเสถียรภาพโดยการดำเนินนโยบายผ่านระบบการเงิน เนื่องจากหากค่าเงินบาทมีการแข็งค่าขึ้นอย่างต่อเนื่องก็จะส่งผลกระทบต่อธุรกิจการส่งออกสินค้า หรือในทางกลับกันหากค่าเงินบาทมีการอ่อนตัวลงอย่างต่อเนื่อง ก็จะส่งผลกระทบต่อธุรกิจการนำเข้าสินค้า เช่นกัน ดังนั้น ธนาคารแห่งประเทศไทยจึงมีการเข้าซื้อขายเงินบาท หรือเงินตราสกุลต่างประเทศที่สำคัญผ่านระบบการเงิน เพื่อรักษาเสถียรภาพของค่าเงินบาทไม่ให้แข็งค่าหรืออ่อนค่าลงเกินไป นอกจากนั้น ยังสามารถใช้วิธีการควบคุมปริมาณเงินที่หมุนเวียนในระบบเศรษฐกิจ เช่น การปรับอัตราการกันเงินสำรองของธนาคารพาณิชย์เมื่อเปรียบเทียบกับปริมาณเงินฝาก การปรับเพิ่มหรือลดอัตราดอกเบี้ยเพื่อปรับสภาพคล่องของธนาคารพาณิชย์ หรือการปรับอัตราดอกเบี้ยในตลาดซื้อคืนพันธบัตร เป็นต้น เพื่อเป็นการลดหรือเพิ่มสภาพคล่องในระบบการเงิน ซึ่งจะส่งผลกระทบต่ออัตราดอกเบี้ยในตลาดการเงินและแนวโน้มของอัตราเงินเฟ้อในอนาคต</p><h1 id="13f0397c-16b3-8024-b4ed-da5a20783f96" class="block-color-blue">1.2 ตลาดการเงิน</h1><h2 id="13f0397c-16b3-803b-b55f-eaaf54691ecd" class="block-color-blue">ความหมายและประเภทของตลาดการเงิน</h2><h3 id="13f0397c-16b3-80c3-b3d0-dea58849e71a" class="block-color-blue">ความหมายและความสำคัญของตลาดการเงิน</h3><p id="13f0397c-16b3-8019-9686-eaac10bebb46" class="">ตลาดการเงิน (Financial Market) หมายถึง แหล่งกลางเพื่อการซื้อและขายหลักทรัพย์หรือตราสารการเงิน เช่น ตราสารทุน (ได้แก่ หุ้นสามัญ หุ้นบุริมสิทธิ) ตราสารหนี้ (เช่น ตั๋วเงินคลัง พันธบัตรรัฐบาล หุ้นกู้) ตราสารอนุพันธ์ (เช่น สัญญาฟิวเจอร์ส สัญญาออปชัน) ตลาดการเงินจึงช่วยเชื่อมโยงผู้มีเงินออมผู้มีเงินลงทุน กับผู้ต้องการใช้เงินทุน ความสำคัญของตลาดการเงินมีดังต่อไปนี้</p><ul id="13f0397c-16b3-8085-9c6b-fb8f2899bfec" class="bulleted-list"><li style="list-style-type:disc">ผู้ออมได้รับผลตอบแทน ในรูปของดอกเบี้ยรับ (ในกรณีลงทุนในตราสารหนี้) เงินปันผล (ในกรณีลงทุนในตราสารทุน) และในรูปของมูลค่าที่สูงขึ้นของเงินลงทุน รวมทั้งผลตอบแทนในรูปแบบอื่นๆ เช่น ได้รับสิทธิในการซื้อหุ้นเพิ่มทุน หรือตราสารอื่นๆ รวมทั้งผลตอบแทนจากการนำกระแสราย ได้ไปลงทุนต่อ</li></ul><ul id="13f0397c-16b3-803b-96ec-d55d25bb0b07" class="bulleted-list"><li style="list-style-type:disc">ผู้ต้องการเงินสามารถมีเงินทุนสำหรับใช้ในโครงการต่างๆ ทำให้เกิดการขยายตัวในการลงทุนที่แท้จริง สามารถผลิตสินค้าและบริการได้เพิ่มมากขึ้น ส่งผลให้เกิดการเจริญเติบโตทางเศรษฐกิจ</li></ul><ul id="13f0397c-16b3-80bc-8063-faffdab5668c" class="bulleted-list"><li style="list-style-type:disc">ประชาชนหรือผู้บริโภคมีมาตรฐานการครองชีพที่ดีขึ้น เนื่องจากการลงทุนขยายตัว มีการจ้างงานมากขึ้น มีการซื้อปัจจัยการผลิตต่างๆ ระดับรายได้ของประชาชนทั่วไปดีขึ้น ขณะเดียวกันผู้ลงทุนผลิตสินค้าและบริการในระบบเศรษฐกิจก็จะขายสินค้าและบริการได้มากขึ้น การลงทุนก็จะขยายตัวออกไปอีก เศรษฐกิจโดยส่วนรวมของประเทศก็จะขยายตัว เกิดการจ้างงาน</li></ul><h2 id="13f0397c-16b3-808b-9892-c1640812ff53" class="block-color-blue">ประเภทของตลาดการเงิน</h2><p id="13f0397c-16b3-80d0-bc28-ee11e769bfd9" class="">อาจจำแนกประเภทของตลาดการเงินได้หลายวิธี ขึ้นอยู่กับเกณฑ์ที่ใช้ในการจัดกลุ่มตามความเหมาะสม เช่น จำแนกประเภทของตลาดการเงินตามประเภทของหลักทรัพย์หรือตราสารการเงินที่มีการซื้อขายในตลาดการเงิน จำแนกตามอายุครบกำหนดไถ่ถอนเมื่อแรกออกของตราสารการเงิน จำแนกตามสิทธิเรียกร้องของผู้ถือหลักทรัพย์หรือตราสารที่มีต่อบริษัทผู้ออกหลักทรัพย์ จำแนกตามการเป็นหลักทรัพย์ออกใหม่หรือหลักทรัพย์ที่หมุนเวียนอยู่แล้วในตลาด เป็นตัน </p><h3 id="13f0397c-16b3-8091-9be0-fad7720e0235" class="block-color-blue"><em>ตลาดตราสารพื้นฐาน ตลาดตราสารอนุพันธ์ และตลาดเงินตราต่างประเทศ</em></h3><p id="13f0397c-16b3-80d6-b2df-d3dbc0ba254e" class="">ประเภทของตลาดการเงินจำแนกตามชนิดของหลักทรัพย์หรือตราสารการเงิน ที่มีการซื้อขายในตลาดการเงิน ได้แก่ (1) หลักทรัพย์หรือตราสารพื้นฐาน อันเป็นหลักทรัพย์ที่ผู้ถือหลักทรัพย์ มีสิทธิเรียกร้องโดยตรงต่อบริษัทผู้ออกหลักทรัพย์ (2) หลักทรัพย์อนุพันธ์หรือตราสารอนุพันธ์ อันเป็นหลักทรัพย์ที่ผู้ถืออาจมีสิทธิหรือมีภาระผูกพัน (แล้วแต่ว่าจะเป็นอนุพันธ์ประเภทใด) ที่จะซื้อหรือขายหลักทรัพย์ที่ระบุ ณ วันเวลาข้างหน้าตามข้อสัญญาที่ระบุไว้แล้วในตราสารนั้นๆ ตัวอย่างเช่น สิทธิซื้อหุ้นสามัญ สิทธิขายหุ้นสามัญ ภาระผูกพันในการซื้อหุ้นสามัญ ภาระผูกพันในการขายหุ้นสามัญ เป็นต้น และ (3) เงินตราต่างประเทศ ตามรูปที่ 1-3 แสดงโครงสร้างของตลาดการเงินในประเทศไทย ได้จำแนกตลาดการเงิน (financial market) ออกเป็น 3 ตลาด ได้แก่ (1) ตลาดตราสารพื้นฐาน (basic security market) (2) ตลาดตราสารอนุพันธ์ (derivative market) และ (3) ตลาดเงินตราต่างประเทศ (foreign exchange market)</p><h3 id="13f0397c-16b3-80ed-a458-ffe152fb41b6" class="block-color-blue"><em><strong>ตลาดเงินและตลาดทุน</strong></em></h3><p id="13f0397c-16b3-8047-9379-f9f24d3f2e8d" class="">หลักทรัพย์หรือตราสารการเงินแต่ละชนิด ล้วนมีอายุครบกำหนดไถ่ถอนแตกต่างกัน บริษัทหรือภาครัฐที่ต้องการเงินกู้ยืมผ่านตลาดการเงิน โดยการออกตราสารหนี้มาจำหน่ายแก่ผู้มีเงินออม ย่อมต้องกำหนดอายุไถ่ถอนของตราสารหนี้นั้นๆ เช่น ตั๋วเงินคลังรุ่นหนึ่งกำหนดอายุไถ่ถอนเมื่อแรกออกเท่ากับ 63 วัน ตั๋วเงินคลังอีกรุ่นหนึ่งกำหนดอายุไถ่ถอนเมื่อแรกออกเท่ากับ 90 วัน พันธบัตรรัฐบาลรุ่นหนึ่งกำหนดอายุไถ่ถอนเมื่อแรกออกเท่ากับ 5 ปี พันธบัตรรัฐบาลอีกรุ่นหนึ่งกำหนดอายุไถ่ถอนเมื่อแรกออกเท่ากับ 7 ปี</p><figure id="13f0397c-16b3-80fd-a12d-ee314c979d61" class="image"><a href="image%202.png"><img style="width:707.984375px" src="image%202.png"/></a></figure><p id="13f0397c-16b3-80e2-8a62-fdc868e4c543" class="">หุ้นกู้ของบริษัทมหาชนแห่งหนึ่งกำหนดอายุไถ่ถอนเมื่อแรกออกเท่ากับ 10 ปี เป็นต้น ทั้งนี้ ตัวอย่างข้างต้นบ่งบอกถึงอายุไถ่ถอนของตราสารหนี้ ในขณะที่ตราสารทุน (ได้แก่ หุ้นสามัญ หุ้นบุริมสิทธิ) ไม่มีอายุไถ่ถอนแต่เป็นตราสารที่มีอายุคงเหลือเท่ากับอายุคงเหลือของกิจการผู้ออกตราสารทุน ทั้งนี้ โดยทั่วไปถือว่ากิจการจะดำรงอยู่ตลอดไปถึงอนันต์ ดังนั้น หากจำแนกตลาดตราสารพื้นฐาน (basic security market) ตามอายุครบกำหนดไถ่ถอนเมื่อแรกออกของตราสารการเงิน ในรูปที่ 1-3 จึงจำแนกตลาดตราสารพื้นฐาน เป็น (1) ตลาดเงิน (money market) เป็นตลาดซื้อขายตราสารที่มีอายุไม่เกิน 1 ปี เช่น ตั๋วแลกเงิน ตั๋วสัญญาใช้เงินชนิดเปลี่ยนมือได้ บัตรเงินฝากชนิดเปลี่ยนมือได้ ตั๋วเงินคลัง เป็นต้น โดยผู้ออกตราสารเหล่านี้ ต้องการกู้ยืมระยะสั้นเพื่อเสริมสภาพคล่องของกิจการ และเป็นเงินทุนหมุนเวียนสำหรับการทำธุรกรรมปกติในแต่ละวัน ทางด้านผู้ลงทุนในตลาดเงิน เป็นผู้ที่ต้องการลงทุนในระยะสั้นๆ ในตราสารที่มีสภาพคล่องสูงและ (2) ตลาดทุน (capital market) เป็นแหล่งกลางสำหรับซื้อขายตราสารที่มีอายุมากกว่า 1 ปี</p><h3 id="13f0397c-16b3-800a-b398-cced4fb11e41" class="block-color-blue"><em>ตลาดตราสารหนี้และตลาดตราสารทุน</em></h3><p id="13f0397c-16b3-8048-81f2-e2aac6da8007" class="">ดังได้กล่าวข้างต้นว่า หลักทรัพย์หรือตราสารพื้นฐาน เป็นหลักทรัพย์ที่ผู้ถือหลักทรัพย์มีสิทธิเรียกร้องโดยตรงต่อบริษัทผู้ออกหลักทรัพย์ จึงสามารถจำแนกหลักทรัพย์พื้นฐานออกเป็น 2 ประเภทใหญ่ๆ ได้แก่ (1) ตราสารทุน อันเป็นหลักทรัพย์ที่ผู้ถือมีสิทธิเรียกร้องในฐานะเจ้าของต่อบริษัทผู้ออกหลักทรัพย์ และ (2) ตราสารหนี้ อันเป็นหลักทรัพย์ที่ผู้ถือมีสิทธิเรียกร้องในฐานะเจ้าหนี้ต่อผู้ออกหลักทรัพย์ ดังนั้น ตามรูปที่ 1-3 จึงจำแนกตลาดทุน (capital market) ออกเป็น (1) ตลาดตราสารหนี้ (bond market) เป็นแหล่งกลางในการซื้อขายตราสารหนี้ ทั้งตราสารหนี้ภาครัฐและภาคเอกชน โดยในทางปฏิบัตินั้น ตราสารหนี้ระยะสั้นก็มีการซื้อขายในตลาดตราสารหนี้ด้วยเช่นกัน (2) ตลาดตราสารทุน (equity market) เป็นแหล่งกลางสำหรับซื้อขาย หุ้นสามัญ หุ้นบุริมสิทธิ รวมทั้งตราสารหรือหลักทรัพย์อื่นๆ ที่เกี่ยวข้องกับตราสารทุน เช่น ใบสำคัญแสดงสิทธิที่จะซื้อหุ้นสามัญระยะยาว (warrant) ใบสำคัญแสดงสิทธิอนุพันธ์ (derivative warrants) เป็นต้น</p><h3 id="13f0397c-16b3-8054-be8c-d4041d8e1746" class="block-color-blue"><em>ตลาดแรกและตลาดรอง</em></h3><p id="13f0397c-16b3-8037-8518-c24328257b75" class="">ก่อนที่จะกล่าวถึงการจำแนกตลาดการเงินในส่วนของตลาดตราสารหนี้และตลาดตราสารทุนเป็นสองลักษณะ คือ ตลาดแรกและตลาดรองนั้น หากย้อนกลับไปพิจารณารูปที่ 1-2 แผนผังกระบวนการการเคลื่อนย้ายของเงินทุนในระบบเศรษฐกิจ โดยเฉพาะในแผนผังย่อย 2 ซึ่งแสดงการเคลื่อนย้ายเงินทุนในตลาดการเงิน โดยมีกิจการวาณิชธนกิจอำนวยความสะดวก ซึ่งคัดมากล่าวซ้ำตามแผนผังต่อไปนี้</p><figure id="13f0397c-16b3-8085-9b56-caaa73b61bb7" class="image"><a href="image%203.png"><img style="width:708px" src="image%203.png"/></a></figure><p id="13f0397c-16b3-80cd-918a-eebe87e009f9" class="">ด้านซ้ายของแผนผัง แสดงโดยนัยว่า เมื่อธุรกิจต้องการระดมเงินทุนจากผู้มีเงินออม โดยการออกหลักทรัพย์หรือตราสารการเงิน หลักทรัพย์นั้นเป็นหลักทรัพย์ที่ธุรกิจออกมาใหม่ เช่น ออกหุ้นเพิ่มทุนออกหุ้นกู้เพื่อกู้ยืมเงิน เป็นต้น เมื่อผู้มีเงินออมซื้อหลักทรัพย์เหล่านั้น ธุรกิจก็จะมีเงินเพื่อการลงทุนเพิ่มขึ้นกล่าวคือ ในกรณีที่ธุรกิจออกหุ้นสามัญเพิ่มทุน เมื่อผู้มีเงินออมซื้อหุ้นสามัญเหล่านั้น เงินทุนส่วนของเจ้าของธุรกิจก็จะเพิ่มขึ้น ในกรณีที่ธุรกิจออกหุ้นกู้ เมื่อผู้มีเงินออมซื้อหุ้นกู้เหล่านั้น เงินทุนจากแหล่งหนี้ของธุรกิจก็จะเพิ่มขึ้น การซื้อขายหุ้นสามัญออกใหม่และหรือหุ้นกู้ที่ธุรกิจออกมาจำหน่ายใหม่ เรียกว่า เป็นการซื้อขายในตลาดแรก (primary market) ซึ่งได้แก่ กล่องกลางแผนผังย่อย 2 ในรูปที่ 1-2 และเมื่อมีการเปลี่ยนมือการถือครองหลักทรัพย์นั้น เช่น มีการซื้อขายหลักทรัพย์ระหว่างผู้ลงทุนด้วยกันเอง เรียกตลาดที่ผู้ลงทุนทำธุรกรรมซื้อขายหลักทรัพย์เพื่อเปลี่ยนมือนี้ว่า ตลาดรอง (secondary market)</p><p id="13f0397c-16b3-800a-8881-eb1184c02518" class="">อย่างไรก็ตาม เนื่องจากในรูปที่ 1-3 ได้จำแนกตลาดทุน (capital market) ออกเป็น ตลาดตราสารหนี้ (bond market) และตลาดตราสารทุน (equity market) ดังนั้น หากจำแนกตลาดสองประเภทดังกล่าวตามการเป็นหลักทรัพย์ออกใหม่หรือหลักทรัพย์ที่หมุนเวียนอยู่แล้วในตลาด จะสามารถจำแนกตลาดตราสารหนี้ (bond market) ออกเป็น ตลาดแรกของตราสารหนี้กับตลาดรองของตราสารหนี้ และจำแนกตลาดตราสารทุน (equity market) ออกเป็น ตลาดแรกของตราสารทุนกับตลาดรองของตราสารทุน อนึ่ง อันที่จริงแล้วตราสารที่ซื้อขายในตลาดเงิน (money market) ก็มีทั้งตราสารการเงินระยะสั้นที่ธุรกิจและรัฐบาลออกมาใหม่ และตราสารการเงินระยะสั้นที่หมุนเวียนในตลาดเงินอยู่แล้ว ทำให้สามารถจำแนกตลาดเงิน (money market) ออกเป็น ตลาดแรกของตลาดเงินกับตลาดรองของตลาดเงินด้วยเช่นกัน อย่างไรก็ตาม ในรูปที่ 1-3 มิได้ระบุรายละเอียดส่วนนี้ลงไป</p><ul id="13f0397c-16b3-80dd-9b56-e86da6de2f8a" class="block-color-blue bulleted-list"><li style="list-style-type:square"><em><strong>ตลาดแรก</strong></em><em>: การเสนอขายหลักทรัพย์ต่อประชาชนและการเสนอขายหลักทรัพย์แบบเฉพาะเจาะจง</em><p id="13f0397c-16b3-8007-8410-ee77bb0aaa93" class=""><mark class="highlight-default">เมื่อธุรกิจออกหลักทรัพย์จำหน่ายในตลาดแรก ธุรกิจอาจเสนอขายหลักทรัพย์แก่ประชาชนทั่วไป ในวงกว้าง หรือที่เรียกว่า Public Offering (PO) และหรืออาจเสนอขายแก่ผู้ลงทุนรายใดรายหนึ่ง หรือกลุ่มใดกลุ่มหนึ่งเป็นการเฉพาะเจาะจง เช่น สถาบันการเงิน กองทุน หรือผู้ลงทุนต่างประเทศ ซึ่งเรียกว่า Private Placement (PP) ดังปรากฏในรูป 1-3 ทั้งด้านตลาดแรกของตราสารหนี้และตลาดแรกของตราสารทุน ทั้งนี้ ในกรณีที่บริษัทระดมเงินทุนโดยการจำหน่ายหุ้นสามัญ เพื่อเปลี่ยนรูปแบบกิจการจากบริษัทในครอบครัวมาเป็นบริษัทมหาชน หรืออาจเป็นกรณีรัฐวิสาหกิจแปรสภาพเป็นบริษัทมหาชน เรียกธุรกรรมในกรณีเหล่านี้ว่า การเสนอขายหุ้นสามัญแก่ประชาชนทั่วไปในวงกว้างเป็นครั้งแรก (initial public offering หรือ IPO)</mark></p></li></ul><ul id="13f0397c-16b3-8015-abbd-ea4ca1772dc6" class="block-color-blue bulleted-list"><li style="list-style-type:disc"><em><strong>ตลาดรอง</strong></em><em>: ศูนย์ซื้อขายหลักทรัพย์และการซื้อขายหลักทรัพย์นอกศูนย์</em><p id="13f0397c-16b3-8081-91c4-f98f1490f1fa" class=""><mark class="highlight-default">ตลาดรอง (secondary market) เป็นตลาดที่ถูกจัดตั้งขึ้นเพื่ออำนวยความสะดวกให้ผู้ลงทุนสามารถซื้อขายหลักทรัพย์หรือตราสารการเงินที่ออกจำหน่ายหมุนเวียนอยู่แล้วได้สะดวกขึ้น โดยการซื้อขายเปลี่ยนมือในตลาดรองอาจเพื่อเป็นการซื้อขายให้สอดคล้องกับความต้องการเงินทุนในช่วงเวลานั้น หรือเป็นการซื้อขายเพื่อมุ่งหวังทำกำไรจากความแตกต่างระหว่างราคาขายกับราคาซื้อหลักทรัพย์ ทั้งนี้ การซื้อขายหลักทรัพย์ในตลาดรองนั้น มิได้มีการเคลื่อนย้ายของเงินทุนเข้าสู่ธุรกิจผู้ออกตราสารเหมือนในตลาดแรก แต่การดำรงอยู่ของตลาดรองจะมีส่วนเอื้อให้การระดมเงินทุนในตลาดแรกทำได้ง่ายขึ้น อาจจำแนกประเภทของตลาดรองตามลักษณะการจัดตั้ง ได้แก่</mark></p><p id="13f0397c-16b3-8095-82bc-e69cde24ac4a" class=""><mark class="highlight-default">(1) ในกรณีที่มีการจัดตั้งอย่างเป็นทางการ เกิดเป็นศูนย์หรือแหล่งรวมการซื้อขายเปลี่ยนมือ หลักทรัพย์ มักเรียกตลาดรองในลักษณะนี้ว่า ศูนย์ซื้อขายหลักทรัพย์อย่างเป็นทางการ (organized exchange) ได้แก่</mark><div class="indented"><p id="13f0397c-16b3-80e5-b071-f3e989fd6622" class=""><strong>ตลาดหลักทรัพย์แห่งประเทศไทย (The Stock Exchange of Thailand)</strong></p><p id="13f0397c-16b3-80d2-88f0-c4b7c03f4e54" class=""><mark class="highlight-default">เป็นตลาดที่จัดตั้งขึ้นอย่างเป็นทางการตามพระราชบัญญัติตลาดหลักทรัพย์แห่งประเทศไทย พ.ศ. 2517 เพื่อทำหน้าที่อำนวยความสะดวกและส่งเสริมการระดมเงินทุนระยะยาวที่มีประสิทธิภาพของบริษัทที่มีขนาดใหญ่ ซึ่งมีทุนชำระแล้วหลัง IPO ตั้งแต่ 300 ล้านบาทขึ้นไป และเป็นศูนย์กลางในการซื้อขายแลกเปลี่ยนหลักทรัพย์ต่างๆ เช่น หุ้นสามัญ หุ้นบุริมสิทธิ ใบสำคัญแสดงสิทธิฯ เป็นต้น</mark></p><p id="13f0397c-16b3-80b2-86d0-e77f24e0a4d6" class=""><strong>ตลาดหลักทรัพย์ เอ็ม เอ ไอ (mai)</strong></p><p id="13f0397c-16b3-80ff-83e0-eca478b3cbe9" class=""><mark class="highlight-default">จัดตั้งขึ้นเพื่อเป็นแหล่งระดมทุนของธุรกิจที่มีศักยภาพขนาดกลางและเล็ก ซึ่งมีทุนชำระแล้วหลัง IPO ตั้งแต่ 20 ล้านขึ้นไป โดยเน้นธุรกิจที่มีการเติบโตสูง และมีแนวโน้มการเติบโตดีในอนาคต โดยเริ่มเปิดการซื้อขายหลักทรัพย์เมื่อวันที่ 17 กันยายน พ.ศ. 2544 ทั้งนี้ การดำเนินงานของตลาดเอ็ม เอ ไอ อยู่ภายใต้การบริหารงานของตลาดหลักทรัพย์แห่งประเทศไทย</mark></p><p id="13f0397c-16b3-80ae-8d0f-d573f7f45009" class=""><strong>ตลาดตราสารหนี้ (Thailand Bond Exchange)</strong></p><p id="13f0397c-16b3-8011-9530-f30499587f8e" class=""><mark class="highlight-default">ดำเนินการในฐานะตลาดรองตราสารหนี้ ให้บริการครอบคลุมผู้ลงทุนและผู้ค้าตราสารหนี้ทั้งหมดจัดตั้งขึ้นเมื่อวันที่ 26 พฤศจิกายน พ.ศ. 2546 เปิดให้บริการการซื้อขายแก่นักลงทุนทั่วไปด้วยระบบการซื้อขายแบบเรียลไทม์</mark></p><p id="13f0397c-16b3-807f-80d3-df664ef05ecc" class=""><strong>บริษัทตลาดสัญญาซื้อขายล่วงหน้า (ประเทศไทย) จำกัด (มหาชน) (The Thailand Futures Exchange Public Co.,Ltd. หรือ TFEX)</strong></p><p id="13f0397c-16b3-8052-8751-f3e013a51097" class=""><mark class="highlight-default">เป็นศูนย์กลางการซื้อขายอนุพันธ์เกี่ยวกับตราสารทุน ตราสารหนี้ และสินค้าโภคภัณฑ์ประเภทอื่นๆ โดยมีสำนักงานคณะกรรมการ ก.ล.ต. เป็นหน่วยงานกำกับดูแล สินค้าที่สามารถจัดให้มีการซื้อขายได้ใน TFEX ตามที่กำหนดในพระราชบัญญัติสัญญาซื้อขายล่วงหน้า พ.ศ. 2546 คือ ฟิวเจอร์ส (Futures) ออปชัน (Options) และออปชันบนสัญญาฟิวเจอร์ส (Options on Futures) ของสินทรัพย์อ้างอิงประเภทต่างๆ</mark></p></div></p><p id="13f0397c-16b3-8086-a925-f6c2bb40c95f" class=""><mark class="highlight-default">(2) ตลาดรองที่มีการซื้อขายแบบตกลงกันเองนอกศูนย์ซื้อขาย มักเรียกตลาดรองลักษณะนี้ว่า Over-the-Counter หรือ OTC ทั้งนี้ ในประเทศที่ตลาดหุ้นมีระดับการพัฒนาก้าวไกล ตลาด OTC จะเป็นเครือข่ายการรวมตัวของผู้ค้าหลักทรัพย์ (dealer) ดังเช่นในประเทศสหรัฐอเมริกา ตลาดรองที่มีลักษณะเป็น OTC ที่เป็นที่รู้จักกันดีได้แก่ ตลาดหุ้น NASDAQ หรือ National Association of Securities Dealers Automated Quotations (ในขณะที่ตลาด NYSE หรือ New York Stock Exchange เป็นศูนย์ซื้อขายหลักทรัพย์อย่างเป็นทางการแห่งหนึ่งในประเทศสหรัฐอเมริกา)</mark></p></li></ul><h1 id="13f0397c-16b3-80d6-822f-ddacf2369c06" class="block-color-blue">บทสรุป</h1><p id="13f0397c-16b3-80ee-be65-dc053b24b2ad" class="">ตำราเล่มนี้ มีเนื้อหามุ่งเน้นที่การลงทุนทางการเงิน ครอบคลุมถึงการลงทุนในตราสารการเงินหรือหลักทรัพย์กลุ่มต่างๆ ได้แก่ ตราสารทุน ตราสารหนี้ระยะยาว ตราสารหนี้ระยะสั้นในตลาดเงิน และหลักทรัพย์อนุพันธ์ ซึ่งส่วนหนึ่งเป็นเครื่องมือสำหรับระดมเงินทุนในตลาดการเงิน โดยนิยามตลาดการเงิน หมายถึง แหล่งกลางเพื่อทำการซื้อและขายหลักทรัพย์หรือตราสารการเงิน เช่น ตราสารทุน (ได้แก่ หุ้นสามัญ หุ้นบุริมสิทธิ) ตราสารหนี้ระยะสั้นในตลาดเงิน (เช่น ตั๋วเงินคลัง) และตราสารหนี้ระยะยาว (เช่น พันธบัตร รัฐบาล หุ้นกู้) ตราสารอนุพันธ์ (เช่น สัญญาฟิวเจอร์ส สัญญาออปชัน) ตลาดการเงินจึงช่วยเชื่อมโยงผู้มีเงินออม ผู้มีเงินลงทุน กับผู้ต้องการใช้เงินทุน อาจจำแนกประเภทของตลาดการเงินได้หลายวิธี ขึ้นอยู่กับเกณฑ์ที่ใช้ในการจัดกลุ่มตามความเหมาะสม เช่น จำแนกประเภทของตลาดการเงินตามประเภทของหลักทรัพย์หรือตราสารการเงินที่มีการซื้อขายในตลาดการเงิน จำแนกตามอายุครบกำหนดไถ่ถอนเมื่อแรกออกของตราสารการเงิน จำแนกตามสิทธิเรียกร้องของผู้ถือหลักทรัพย์หรือตราสารที่มีต่อบริษัทผู้ออกหลักทรัพย์ จำแนกตามการเป็นหลักทรัพย์ออกใหม่ (ตลาดแรก) หรือหลักทรัพย์ที่หมุนเวียนอยู่แล้ว ในตลาด (ตลาดรอง) เป็นต้น</p><p id="13f0397c-16b3-80fd-8ab0-e05eb4691f8e" class="">ระบบการเงิน เป็นแหล่งเงินทุนแก่ภาคธุรกิจ ภาครัฐ และภาคครัวเรือน ที่ต้องการใช้เงินทุน ดังนั้น บทบาทหน้าที่ของระบบการเงินได้ครอบคลุมถึงกิจกรรมส่งเสริมการออม สนับสนุนการระดมเงินลงทุน รักษาความมั่งคั่งของเงินออม บริการด้านการชำระราคา การประเมินเครดิต ช่องทางในการบริหารความเสี่ยงและเป็นเครื่องมือในการบริหารเศรษฐกิจของภาครัฐ</p><figure id="13b0397c-16b3-8080-a12b-d0626449cca5" class="link-to-page"><a href="cover.html">ความรู้พื้นฐานเกี่ยวกับการเงินและการลงทุน</a></figure><figure id="13b0397c-16b3-8039-9486-cd07e376da23" class="link-to-page"><a href="chapter2.html">บทที่ 2 ตราสารการเงินและการตัดสินใจลงทุน</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
